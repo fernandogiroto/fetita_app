@@ -1,0 +1,112 @@
+.page-intro {
+    margin-top: -6rem;
+}
+
+section {
+    padding: 35px 0px;
+}
+
+.call-action {
+    background-size: cover;
+    background-image: url('https://img.lemde.fr/2023/02/14/91/0/3641/1820/1440/720/60/0/b89e425_1676389697347-nationalitei-portugaise-juifs-def.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 8px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.page-info {
+    margin-top: -339px;
+}
+
+.info-comunity-img {
+    max-height: 150px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.sugar-info-image {
+    border-radius: 10px;
+    justify-content: center;
+    background-size: cover;
+    background-image: url('https://blogcdn.sugardaddyseek.com/20220711/051341-paginas-para-conseguir-sugar-mommy.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.card-header-cm-users {
+    background: #f6f8fb;
+}
+
+.card-header-tabs-cm-users {
+    background: #f6f8fb;
+}
+
+.card-body-cm-users {
+    background: #f6f8fb;
+}
+
+.nav-link-users {
+    border: 1px solid #000000;
+}
+
+
+.nav-link {
+    margin-right: 5px;
+}
+
+a.nav-link.active.nav-link-users {
+    padding: 10px 30px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+a.nav-link.nav-link-users {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px 30px;
+}
+
+.btn-users-cmg {
+    padding: 10px 30px;
+}
+
+.user-profile-avatar {
+    width: 370px;
+    height: 275px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    border-radius: 15px;
+    background-position: center;
+}
+
+.gallery-users {
+    border-radius: 15px;
+}
+
+.img-responsive-21x9 {
+    --tblr-img-responsive-ratio: 49.857143%;
+}
+
+.chat-bubble-me {
+    background-color: var(--tblr-primary-lt);
+    box-shadow: none;
+}
+
+.chat-bubble {
+    background: var(--tblr-bg-surface-secondary);
+    border-radius: var(--tblr-border-radius-lg);
+    padding: 1rem;
+    position: relative;
+}
+
+.chat-bubbles {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
