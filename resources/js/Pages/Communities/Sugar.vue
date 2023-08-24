@@ -72,9 +72,6 @@
                             <a href="#tabs-active-users" class="nav-link active nav-link-users" data-bs-toggle="tab" aria-selected="true" role="tab">Ativos</a>
                           </li>
                           <li class="nav-item" role="presentation">
-                            <a href="#tabs-highlight-users" class="nav-link nav-link-users" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">Destaques</a>
-                          </li>
-                          <li class="nav-item" role="presentation">
                             <a href="#tabs-new-users" class="nav-link nav-link-users" data-bs-toggle="tab" aria-selected="false" role="tab" tabindex="-1">Novos</a>
                           </li>
                           <li class="nav-item ms-auto" role="presentation">
@@ -109,25 +106,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class="tab-pane" id="tabs-highlight-users" role="tabpanel">
-                            <div class="row row-cards">
-                              <div class="col-md-6 col-lg-2" v-for="user in users_highlights.data">
-                                <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
-                                  <div class="card">
-                                    <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(https://i.pravatar.cc/150?img=${user.id})`"></div>
-                                    <span class="badge bg-lime badge-notification badge-blink"></span>
-                                    <div class="card-body py-2">
-                                      <h3 class="card-title mb-0">{{user.name}} {{user.surname}}</h3>
-                                      <p class="text-muted">{{user.location}}</p>
-                                    </div>
-                                  </div>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
                           <div class="tab-pane" id="tabs-new-users" role="tabpanel">
                             <div class="row row-cards">
-                              <div class="col-md-6 col-lg-2" v-for="user in users.data">
+                              <div class="col-md-6 col-lg-2" v-for="user in users_new.data">
                                 <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
                                   <div class="card">
                                     <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(https://i.pravatar.cc/150?img=${user.id})`"></div>
@@ -163,19 +144,14 @@
                     em que esses arranjos evoluem para relacionamentos emocionais genuínos, muitas vezes, a principal motivação 
                     é a troca de suporte financeiro por companhia e atenção.
                     </p>
-                    <a href="#" class="btn btn-large btn-ghost-dark active ">
+                    <a href="#" class="btn btn-large btn-ghost-dark active">
                       Quero Saber Mais
                     </a>
                   </div>
-                  <div class="col-lg-6 sugar-info-image ps-5" >
-
+                  <div class="col-lg-6 sugar-info-image ps-5">
                   </div>
-
-
                 </div>
               </section>  
-
-
             </div>
           </div>
         </template>
@@ -185,11 +161,12 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, useForm, Link } from '@inertiajs/vue3';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref,computed} from 'vue';
+
 
 const props = defineProps({
   users: Object,
-  users_highlights: Object,
+  users_new: Object,
   users_count: Number,
   user: Object
 });

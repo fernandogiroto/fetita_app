@@ -45,7 +45,6 @@
   import { ref } from 'vue';
 
   const tab = ref('my-account');
-
   function changeTab(openTab){
     tab.value = openTab;
   }

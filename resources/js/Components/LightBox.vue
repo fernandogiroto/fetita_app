@@ -7,7 +7,7 @@
         >
           <div class="img-responsive img-responsive-1x1 border gallery-users" :style="`background-image: url(${src})`"></div>
         </div>
-        <div class="col-3" v-if="myProfile && showAddImage < 4">
+        <div class="col-3" v-if="myProfile && showAddImage < 14">
           <div class="img-responsive img-responsive-1x1 border gallery-users pointer" :style="`background-image: url(${plusImage})`" data-bs-toggle="modal" data-bs-target="#modal-success"></div>
       </div>
     </div>

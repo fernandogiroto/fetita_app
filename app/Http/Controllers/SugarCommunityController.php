@@ -14,23 +14,24 @@ class SugarCommunityController extends Controller
     {
         $users_count = DB::table('users')->count();
         $user = Auth::user();
+
         $users = User::where('sugar_daddy', true)
             ->where('id', '!=', $user->id)
             ->where('active', true)
             ->orderBy('last_activity', 'asc')
             ->paginate(12);
 
-        $users_highlights = User::where('sugar_daddy', true)
+        $users_new = User::where('sugar_daddy', true)
             ->where('id', '!=', $user->id)
             ->where('active', true)
-            ->orderBy('highlight', 'desc')
+            ->orderBy('created_at', 'desc')
             ->paginate(12);
 
         return Inertia::render('Communities/Sugar', [
             'users' => $users,
             'user' => $user,
             'users_count' => $users_count,
-            'users_highlights' => $users_highlights
+            'users_new' => $users_new
         ]);
     }
 

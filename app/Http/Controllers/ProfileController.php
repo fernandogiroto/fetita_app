@@ -33,16 +33,17 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
 
-        $request->user()->fill($request->validated());
-        $request->user()->visible = filter_var(request()->input('visible'), FILTER_VALIDATE_BOOLEAN);
+        dd('entrei');
+        // $request->user()->fill($request->validated());
+        // $request->user()->visible = filter_var(request()->input('visible'), FILTER_VALIDATE_BOOLEAN);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+        // if ($request->user()->isDirty('email')) {
+        //     $request->user()->email_verified_at = null;
+        // }
 
-        $request->user()->save();
+        // $request->user()->save();
 
-        return Redirect::route('profile.edit');
+        // return Redirect::route('profile.edit');
     }
 
 
