@@ -30,6 +30,7 @@ return new class extends Migration
             $table->boolean('podolatry')->nullable();
             $table->boolean('thresome')->nullable();
             $table->string('avatar')->nullable();
+            $table->json('gallery')->nullable();
             $table->dateTime('last_activity')->nullable();
             $table->text('description')->nullable();
             $table->integer('highlight')->default(0);

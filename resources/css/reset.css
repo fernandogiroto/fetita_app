@@ -110,3 +110,7 @@ a.nav-link.nav-link-users {
     flex-direction: column;
     gap: 1rem;
 }
+
+.pointer {
+    cursor: pointer;
+}

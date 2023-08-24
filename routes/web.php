@@ -57,7 +57,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/upload/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.update.avatar');
-
+    Route::post('/delete/avatar', [ProfileController::class, 'deleteAvatar'])->name('profile.delete.avatar');
+    Route::post('/upload/gallery', [ProfileController::class, 'updateGallery'])->name('profile.update.gallery');
 
     Route::put('/comunidades/sugar/subscribre', [SugarCommunityController::class, 'subscribre'])->name('comunidades.sugar.subscribre');
 });

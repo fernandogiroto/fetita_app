@@ -135,13 +135,13 @@
             </div>
           </div>
         </div>
-        <div class="nav-item dropdown" >
+        <div class="nav-item dropdown">
           <div v-if="user?.name">
             <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-              <span class="avatar avatar-sm" :style="`background-image: url(${user.avatar})`"></span>
+              <span class="avatar avatar-sm" :style="`background-image: url(${avatar})`"></span>
              <div class="d-none d-xl-block ps-2" >
                <div>{{user.name}} {{user.surname}}</div>
-               <div class="mt-1 small text-muted">@fernandocgiroto</div>
+               <div class="mt-1 small text-muted">{{user.nickname}}</div>
              </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -166,7 +166,10 @@ import { computed } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3';
 
-
 const page = usePage();
-const user = computed(() => page.props.auth.user);
+const user = usePage().props.auth.user;
+
+import avatarDefault from '@/Assets/Images/avatar-default.jpeg';
+let avatar = user.avatar ?? avatarDefault;
+
 </script>

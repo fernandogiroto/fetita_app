@@ -75,7 +75,7 @@
                 <div class="col-lg-8">
                   <div class="card card-lg">
                     <div class="card-body py-3 px-3">
-                      <LightBox :images="userImages"></LightBox>
+                      <LightBox :images="user.gallery"></LightBox>
                     </div>
                   </div>
                 </div>
@@ -91,14 +91,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import LightBox from '@/Components/LightBox.vue'
 import { Head } from '@inertiajs/vue3';
-import {ref} from 'vue';
 
 defineProps(['user']);
 
-const userImages = ref([
-  'https://via.placeholder.com/300.png/',
-  'https://via.placeholder.com/300.png/',
-  'https://via.placeholder.com/300.png/',
-  'https://via.placeholder.com/300.png/',
-])
 </script>
