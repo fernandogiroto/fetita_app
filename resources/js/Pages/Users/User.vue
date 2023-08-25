@@ -22,7 +22,7 @@
               <div class="row row-cards mt-5">
                 <div class="col-lg-4 pe-1">
                   <div class="card">
-                    <div class="img-responsive img-responsive-21x9 card-img-top" :style="`background-image: url(https://i.pravatar.cc/150?img=${user.id})`"></div>
+                    <div class="img-responsive img-responsive-21x9 card-img-top" :style="`background-image: url(${avatar})`"></div>
                     <div class="card-body">
                       <div class="card-title">{{user.name}} {{user.surname}}</div>
                       <div class="mb-2">
@@ -91,7 +91,10 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import LightBox from '@/Components/LightBox.vue'
 import { Head } from '@inertiajs/vue3';
+import {ref} from 'vue';
 
-defineProps(['user']);
+const props = defineProps(['user']);
+const profilePhotoDefault = `https://i.pravatar.cc/150?img=${props.user.id}`;
+const avatar = ref(props.user.avatar ?? profilePhotoDefault);
 
 </script>

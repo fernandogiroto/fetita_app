@@ -25,7 +25,7 @@
             </div>
           </form>
           <!-- USER INFORMATION -->
-          <form @submit.prevent="form.patch(route('profile.update'))">
+          <form @submit.prevent="submitUpdate">
             <div class="row g-3">
               <div class="col-md">
                 <div class="form-label">Usuário</div>
@@ -39,18 +39,39 @@
                 <div class="form-label">Sobrenome</div>
                 <input type="text" class="form-control" v-model="form.surname">
               </div>
+
+              <div class="col-md">
+                <div class="form-label">Gênero</div>
+                <select class="form-select" v-model="form.gender">
+                  <option >Homem</option>
+                  <option >Mulher</option>
+                  <option >Homem Transgênero</option>
+                  <option >Mulher Transgênero</option>
+                  <option >Não-Binário</option>
+                </select>
+              </div>
             </div>
             <div>
               <div class="row g-3 mt-2">
                 <div class="col-md-4">
-                  <div class="form-label">Localização</div>
+                  <div class="form-label">País</div>
+                    <select class="form-select" v-model="form.country">
+                      <option v-for="country in countrys" :key="country.id" :selected="form.country">{{country.name}}</option>
+                    </select>
+                  </div>
+                <!-- <div class="col-md-4">
+                  <div class="form-label">Estado</div>
                   <input type="text" class="form-control" :value="user.location">
                 </div>
+                <div class="col-md-4">
+                  <div class="form-label">Cidade</div>
+                  <input type="text" class="form-control" :value="user.location">
+                </div> -->
               </div>
             </div>
             <div class="mt-2 mb-3 mb-0">
               <label class="form-label">Descrição</label>
-              <textarea rows="5" class="form-control" placeholder="Here can be your description" v-model="form.description"></textarea>
+              <textarea rows="5" class="form-control" placeholder="Escreva uma breve descrição sobre você" v-model="form.description"></textarea>
             </div>
             <h3 class="card-title mt-4">Email</h3>
             <div>
@@ -72,11 +93,11 @@
               </a>
             </div>
             <h3 class="card-title mt-4">Perfíl Público</h3>
-            <p class="card-subtitle">Tornar o seu perfil público significa que qualquer pessoa no portal poderá encontrá-lo.</p>
+            <p class="card-subtitle">{{visible}}Tornar o seu perfil público significa que qualquer pessoa no portal poderá encontrá-lo.</p>
             <div class="mb-5">
               <label class="form-check form-switch form-switch-lg">
-                <input class="form-check-input" type="checkbox" checked>
-                <span class="form-check-label form-check-label-on">Você está visível</span>
+                <input class="form-check-input" type="checkbox"  v-model="form.visible">
+                <span class="form-check-label form-check-label-on">Você está visível </span>
                 <span class="form-check-label form-check-label-off">Você está invisível</span>
               </label>
             </div>
@@ -109,19 +130,37 @@ import avatarDefault from '@/Assets/Images/avatar-default.jpeg';
 const avatar = ref(user.avatar ?? avatarDefault);
 const avatarInput = ref(null);
 
-// let visible = ref(!!user.visible);
+const props = defineProps({
+    countrys: Object
+});
+
+let visible = ref(!!user.visible);
 
 const form = useForm({
     name: user.name,
     surname: user.surname,
-    email: user.email,
+    gender: user.gender,
+    country: user.country?.name,
+    email: user?.email,
     nickname: user.nickname,
     description: user.description,
+    visible: !!user.visible
 });
 
 const avatarform = useForm({
     avatar: null,
 });
+
+const submitUpdate = () =>{
+  form.patch(route('profile.update'),{
+    onSuccess: (response) =>{
+      router.visit(route("profile.edit"),
+      { 
+        preserveScroll:true
+      })
+    },
+  })
+}
 
 const submitAvatar = () => {
   const formData = new FormData();

@@ -16,12 +16,14 @@ class SugarCommunityController extends Controller
         $user = Auth::user();
 
         $users = User::where('sugar_daddy', true)
+            ->with('country')
             ->where('id', '!=', $user->id)
             ->where('active', true)
             ->orderBy('last_activity', 'asc')
             ->paginate(12);
 
         $users_new = User::where('sugar_daddy', true)
+            ->with('country')
             ->where('id', '!=', $user->id)
             ->where('active', true)
             ->orderBy('created_at', 'desc')

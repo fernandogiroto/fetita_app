@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Country;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -22,7 +23,8 @@ class ProfileController extends Controller
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
-            'user' => Auth::user()
+            'user' =>  Auth::user()->load('country'),
+            'countrys' => Country::all()
         ]);
     }
 
@@ -33,17 +35,23 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
 
-        dd('entrei');
-        // $request->user()->fill($request->validated());
-        // $request->user()->visible = filter_var(request()->input('visible'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->fill($request->validated());
+        $request->user()->visible = filter_var(request()->input('visible'), FILTER_VALIDATE_BOOLEAN);
 
-        // if ($request->user()->isDirty('email')) {
-        //     $request->user()->email_verified_at = null;
-        // }
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
+        }
 
-        // $request->user()->save();
+        if ($request->visible) {
+            $visible = filter_var(request()->input('visible'), FILTER_VALIDATE_BOOLEAN);
+            $request->user()->visible = $visible;
+        }
 
-        // return Redirect::route('profile.edit');
+        $country = Country::where('name', $request->country)->first();
+        $request->user()->country_id = $country->id;
+        $request->user()->save();
+
+        return Redirect::route('profile.edit');
     }
 
 

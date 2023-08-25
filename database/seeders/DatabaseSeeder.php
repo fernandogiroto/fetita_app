@@ -16,9 +16,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        User::factory(65)->create();
         $this->call([
-            ChatRoomSeeder::class
+            ChatRoomSeeder::class,
+            CountriesTableSeeder::class,
         ]);
+
+        User::factory(65)->create();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Country;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,15 +14,18 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $users = User::query()
+            ->with('country')
             ->when(request()->all(), function ($query) {
-
                 if (request()->has('search')) {
                     $search = request()->input('search');
                     $query->where('name', 'like', "%{$search}%");
                 }
-                if (request()->has('location')) {
-                    $location = request()->input('location');
-                    $query->where('location', 'like', "%{$location}%");
+                if (request()->has('country')) {
+                    $countryName = request()->input('country');
+                    $country = Country::where('name', $countryName)->first();
+                    if ($country) {
+                        $query->where('country_id', $country->id);
+                    }
                 }
                 if (request()->has('sugarDaddy')) {
                     $sugarDaddy = filter_var(request()->input('sugarDaddy'), FILTER_VALIDATE_BOOLEAN);
@@ -61,12 +65,12 @@ class UserController extends Controller
             ->paginate(16);
 
         $users->appends(request()->all());
-        $locations = User::pluck('location')->unique()->sort();
-
+        $countryIds = Country::all();
 
         return Inertia::render('Users/Users', [
             'users' => $users,
-            'locations' => $locations,
+            'countrys' => null,
+            'countries_id' =>  $countryIds,
             'filters' => request()->all()
         ],);
     }

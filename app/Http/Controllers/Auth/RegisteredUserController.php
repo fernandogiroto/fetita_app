@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'surname' => 'Fetish',
             'nickname' => '111122222333344555555',
-            'location' => 'Rio de Janeiro',
+            'country_id' => 1,
             'password' => Hash::make($request->password),
             'last_activity' => Carbon::now(),
             'sugar_daddy' => true
@@ -54,6 +54,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::DASHBOARD);
     }
 }

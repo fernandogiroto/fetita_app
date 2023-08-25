@@ -157,7 +157,7 @@
                               <span class="badge bg-lime badge-notification badge-blink" v-if="user.active"></span>
                               <div class="card-body py-2">
                                 <h3 class="card-title mb-0">{{user.name}} {{user.surname}}</h3>
-                                <p class="text-muted">{{user.location}}</p>
+                                <p class="text-muted">{{user.country.name}}</p>
                               </div>
                             </div>
                           </Link>

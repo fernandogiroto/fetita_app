@@ -16,7 +16,9 @@ class ProfileUpdateRequest extends FormRequest
             'email' => ['required', 'email', 'string', 'max:255', Rule::unique('users')->ignore(Auth::user())],
             'password' => ['nullable', 'string', 'confirmed', 'min:8'],
             'nickname' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
+            'gender' => ['required'],
+            'description' => ['string', 'max:255'],
+            'country_id' => ['string'],
         ];
     }
 

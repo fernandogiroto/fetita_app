@@ -22,7 +22,8 @@ class User extends Authenticatable
         'surname',
         'email',
         'nickname',
-        'location',
+        'gender',
+        'country',
         'last_activity',
         'cm_sugar',
         'description',
@@ -55,5 +56,10 @@ class User extends Authenticatable
     public function messages()
     {
         return $this->hasMany(Message::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
     }
 }

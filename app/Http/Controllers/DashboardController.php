@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $users = User::where('id', '!=', $user->id)->orderBy('last_activity', 'desc')->paginate(12);
+        $users = User::with('country')->where('id', '!=', $user->id)->orderBy('last_activity', 'desc')->paginate(12);
         return Inertia::render('Dashboard', ['users' => $users, 'user' => $user]);
     }
 }

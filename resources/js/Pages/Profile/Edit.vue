@@ -16,7 +16,7 @@
                         @click="changeTab('my-account')"
                         class="list-group-item list-group-item-action d-flex align-items-center pointer"
                         :class="{ active: tab === 'my-account' }">
-                        Minnha Conta
+                        Minha Conta
                       </a>
                       <a 
                         @click="changeTab('my-communities')" 
@@ -27,7 +27,7 @@
                     </div>
                   </div>
                 </div>
-                <Information v-if="tab==='my-account'"></Information>
+                <Information v-if="tab==='my-account'" :countrys="countrys"></Information>
                 <MyCommunities v-if="tab==='my-communities'"></MyCommunities>
               </div>
             </div>
@@ -43,6 +43,10 @@
   import MyCommunities from '@/Pages/Profile/MyCommunities.vue'
   import { Head } from '@inertiajs/vue3';
   import { ref } from 'vue';
+
+  const props = defineProps({
+    countrys: Object
+  });
 
   const tab = ref('my-account');
   function changeTab(openTab){

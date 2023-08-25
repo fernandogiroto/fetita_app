@@ -26,8 +26,7 @@
 
                     <form class="sticky-top">
                       <div class="form-label">Usuário</div>
-                      <input type="text" class="form-control mb-4" name="example-text-input" placeholder="Pesquise pelo nome"  v-model="search">
-                      
+                      <input type="text" class="form-control mb-4" name="example-text-input" placeholder="Pesquise pelo nome"  v-model="search">       
                       <div class="form-label">Localização</div>
                       <div class="mb-4">
                         <label class="form-check">
@@ -69,9 +68,9 @@
                       </div>
                       <div class="form-label">Localização</div>
                       <div class="mb-4">
-                        <select class="form-select" v-model="location">
+                        <select class="form-select" v-model="country">
                           <option value="no_location" selected>Localização</option>
-                          <option v-for="location in locations" :key="location">{{location}}</option>
+                          <option v-for="country in countries_id" :key="country">{{country.name}}</option>
                         </select>
                       </div>
                       <div class="mt-5">
@@ -87,14 +86,13 @@
                       <div class="col-sm-6 col-lg-3" v-for="user in users.data">
                       <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
                         <div class="card card-sm">
-                          
                           <img :src="`https://i.pravatar.cc/150?img=${user.id}`" class="card-img-top">
                           <span class="badge bg-lime badge-notification badge-blink" v-if="user.active"></span>
                           <div class="card-body">
                             <div class="d-flex align-items-center">
                               <div>
                                 <div>{{user.name}} {{user.surname}}</div>
-                                <div class="text-muted">{{user.location}}</div>
+                                <div class="text-muted">{{user.country.name}}</div>
                               </div>
                             </div>
                           </div>
@@ -118,18 +116,17 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import {ref, watch} from 'vue';
 import { router } from '@inertiajs/vue3'
-
 import Pagination from '@/Components/Pagination.vue';
-
 
 const props = defineProps({
   users: Object,
-  locations: Object,
+  countrys: Object,
+  countries_id: Object,
   filters: Object
 })
 
 let search = ref(props.filters.search);
-let location = ref(props.filters.location);
+let country = ref(props.filters.country);
 let sugarDaddy = ref(!!props.filters.sugarDaddy);
 let sugarMommy = ref(!!props.filters.sugarMommy);
 let submissive = ref(props.filters.submissive);
@@ -141,12 +138,12 @@ let active = ref(props.filters.active);
 
 
 watch(
-  [search, location, sugarDaddy,sugarMommy,submissive,bondage,cuckold,podolatry,thresome,active],
-  ([searchValue,locationValue,sugarDaddyValue,sugarMommyValue,submissiveValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
+  [search, country, sugarDaddy,sugarMommy,submissive,bondage,cuckold,podolatry,thresome,active],
+  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,submissiveValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
     const queryParams = {};
 
     if (searchValue !== '') {queryParams.search = searchValue; }
-    if (locationValue !== false && locationValue !== 'no_location') {queryParams.location = locationValue; }
+    if (countryValue !== false && countryValue !== 'no_location') {queryParams.country = countryValue; }
     if (sugarDaddyValue !== false) {queryParams.sugarDaddy = sugarDaddyValue;}
     if (sugarMommyValue !== false) {queryParams.sugarMommy = sugarMommyValue;}
     if (submissiveValue !== false) {queryParams.submissive = submissiveValue;}
@@ -163,7 +160,6 @@ watch(
     })
   }
 );
-
 
 const reset = ()=>{
   search.value= '';
