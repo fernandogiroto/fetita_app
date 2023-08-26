@@ -1,6 +1,6 @@
 
 <template>
-    <Head title="Sugar"/>
+    <Head title="Podolatria"/>
     <AppLayout>
         <template #content>
         <!-- Page header -->
@@ -15,8 +15,8 @@
                 <div class="col-lg-4">
                   <div class="card lex-grow-1">
                     <div class="card-body">
-                      <img src="@/Assets/images/sugar.png" class="info-comunity-img">
-                      <h3 class="mb-1">COMUNIDADE SUGAR</h3>
+                      <img src="@/Assets/images/footfetish.jpeg" class="info-comunity-img">
+                      <h3 class="mb-1">COMUNIDADE PODOLATRIA</h3>
                       <div class="text-muted mb-3">
                         A short and simple permissive license with conditions only requiring preservation of copyright and
                         license. A short and simple permissive license with conditions only.
@@ -40,7 +40,7 @@
                       
                       <form @submit.prevent="subscribe">
                         <button class="btn btn-primary btn-square w-100 p-3">
-                          {{ form.sugar_daddy ? 'Sair da Comunidade' : 'Me Inscrever na Comunidade' }}
+                          {{ form.podolatry ? 'Sair da Comunidade' : 'Me Inscrever na Comunidade' }}
                         </button>
                       </form>
                     </div>
@@ -127,7 +127,7 @@
               <section>
                 <div class="row row-cards pt-5">
                   <div class="col-lg-6 pe-5">
-                    <h2>O que é a fantasia sugar?</h2>
+                    <h2>O que é a fantasia podolatria?</h2>
                     <p class="text-justify">Sugar Daddy é um termo utilizado para descrever um homem mais velho e financeiramente bem-sucedido que 
                     oferece apoio financeiro e presentes luxuosos a uma pessoa mais jovem, geralmente uma mulher, em troca de
                     companhia, relacionamento ou amizade. O conceito de "sugar daddy" está enraizado na dinâmica de 
@@ -166,15 +166,15 @@ const user = usePage().props.auth.user;
 
 const form = useForm({
     subscribe: user.name,
-    sugar_daddy: !!user.sugar_daddy
+    podolatry: !!user.podolatry
 });
 
 const subscribe = () => {
-    form.sugar_daddy = !form.sugar_daddy;
-    form.put(route('comunidades.sugar.subscribre'), {
+    form.podolatry = !form.podolatry;
+    form.put(route('comunidades.podolatry.subscribre'), {
         preserveScroll: true,
         onSuccess: (response) => {
-          form.sugar_daddy = response.props.user.sugar_daddy;
+          form.podolatry = response.props.user.podolatry;
           console.log(response)
         }
     });

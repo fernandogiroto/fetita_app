@@ -23219,8 +23219,8 @@ Stacked card
 
 .card-title {
   display: block;
-  margin: 0 0 0.5rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.3rem;
+  font-size: 0.8rem;
   font-weight: var(--tblr-font-weight-medium);
   line-height: 1.1rem;
 }

@@ -38,7 +38,7 @@
                           <span class="form-check-label">Sugar Mommy</span>
                         </label>
                         <label class="form-check">
-                          <input type="checkbox" class="form-check-input" name="form-type[]" v-model="submissive">
+                          <input type="checkbox" class="form-check-input" name="form-type[]" v-model="submision">
                           <span class="form-check-label">Submisso(a)</span>
                         </label>
                         <label class="form-check">
@@ -129,7 +129,7 @@ let search = ref(props.filters.search);
 let country = ref(props.filters.country);
 let sugarDaddy = ref(!!props.filters.sugarDaddy);
 let sugarMommy = ref(!!props.filters.sugarMommy);
-let submissive = ref(props.filters.submissive);
+let submision = ref(!!props.filters.submision);
 let bondage = ref(props.filters.bondage);
 let cuckold = ref(props.filters.cuckold);
 let podolatry = ref(props.filters.podolatry);
@@ -138,15 +138,15 @@ let active = ref(props.filters.active);
 
 
 watch(
-  [search, country, sugarDaddy,sugarMommy,submissive,bondage,cuckold,podolatry,thresome,active],
-  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,submissiveValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
+  [search, country, sugarDaddy,sugarMommy,submision,bondage,cuckold,podolatry,thresome,active],
+  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,submisionValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
     const queryParams = {};
 
     if (searchValue !== '') {queryParams.search = searchValue; }
     if (countryValue !== false && countryValue !== 'no_location') {queryParams.country = countryValue; }
     if (sugarDaddyValue !== false) {queryParams.sugarDaddy = sugarDaddyValue;}
     if (sugarMommyValue !== false) {queryParams.sugarMommy = sugarMommyValue;}
-    if (submissiveValue !== false) {queryParams.submissive = submissiveValue;}
+    if (submisionValue !== false) {queryParams.submision = submisionValue;}
     if (bondageValue !== false) {queryParams.bondage = bondageValue;}
     if (cuckoldValue !== false) {queryParams.cuckold = cuckoldValue;}
     if (podolatryValue !== false) {queryParams.podolatry = podolatryValue;}
@@ -166,7 +166,7 @@ const reset = ()=>{
   location.value=false, 
   sugarDaddy.value=false,
   sugarMommy.value=false,
-  submissive.value=false,
+  submision.value=false,
   bondage.value=false,
   cuckold.value=false,
   podolatry.value=false,

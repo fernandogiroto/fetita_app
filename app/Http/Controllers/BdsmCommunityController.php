@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class SugarCommunityController extends Controller
+class BdsmCommunityController extends Controller
 {
     public function index()
     {
@@ -31,7 +31,7 @@ class SugarCommunityController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(12);
 
-        return Inertia::render('Communities/Sugar', [
+        return Inertia::render('Communities/Bdsm', [
             'user' => $user,
             'users' => $users,
             'users_new' => $users_new,
@@ -46,6 +46,6 @@ class SugarCommunityController extends Controller
         $user->sugar_daddy = $community;
         $user->save();
 
-        return Redirect::route('comunidades.sugar');
+        return Redirect::route('comunidades.bdsm');
     }
 }

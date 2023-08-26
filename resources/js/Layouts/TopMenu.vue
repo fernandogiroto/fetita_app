@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <Link :href="route('dashboard')">
-        <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">Fetita</h1>
+        <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">FETITA</h1>
       </Link>
       <ul class="navbar-nav">
         <li class="nav-item" :class="{ 'active': $page.url === '/como-funciona' }">
@@ -28,12 +28,11 @@
               <div class="dropdown-menu-column">
                 
                 <Link class="dropdown-item" :href="route('comunidades.sugar')">Sugar</Link>
-                <a class="dropdown-item" href="./layout-boxed.html">
-                  Cuckold
-                </a>
-                <a class="dropdown-item" href="./layout-vertical.html">
-                  Submissão
-                </a>
+                <Link class="dropdown-item" :href="route('comunidades.bondage')">Bondage</Link>
+                <Link class="dropdown-item" :href="route('comunidades.cuckold')">Cuckold</Link>
+                <Link class="dropdown-item" :href="route('comunidades.podolatry')">Podolatria</Link>
+                <Link class="dropdown-item" :href="route('comunidades.submision')">Submisão</Link>
+                <Link class="dropdown-item" :href="route('comunidades.thresome')">Thresome</Link>
               </div>
             </div>
           </div>
@@ -162,11 +161,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3';
 
-const page = usePage();
 const user = usePage().props.auth.user;
 
 import avatarDefault from '@/Assets/Images/avatar-default.jpeg';

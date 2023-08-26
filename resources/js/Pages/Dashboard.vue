@@ -44,7 +44,7 @@
                               <div class="col">
                                 <div class="card-body">
                                   <h3 class="card-title">Sugar Daddy</h3>
-                                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit.</p>
+                                  <p class="text-muted">No mundo da cumplicidade, o "sugar daddy" guia com mimos uma jornada luxuosa.</p>
                                 </div>
                               </div>
                             </div>
@@ -53,79 +53,89 @@
                         </div>
                       
                         <div class="col-sm-6 col-lg-4">
-                          <div class="card">
-                            <div class="row row-0">
-                              <div class="col-3">
-                                <img src="@/assets/images/submision.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
-                              </div>
-                              <div class="col">
-                                <div class="card-body">
-                                  <h3 class="card-title">Submissão</h3>
-                                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit.</p>
+                          <Link :href="route('comunidades.submision')" class="text-decoration-none"> 
+                            <div class="card">
+                              <div class="row row-0">
+                                <div class="col-3">
+                                  <img src="@/assets/images/submision.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
+                                </div>
+                                <div class="col">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Submissão</h3>
+                                    <p class="text-muted">Na entrega da submissão, desenha-se uma dança íntima de confiança e desejo.</p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                          <div class="card">
-                            <div class="row row-0">
-                              <div class="col-3">
-                                <img src="@/assets/images/bondage.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
-                              </div>
-                              <div class="col">
-                                <div class="card-body">
-                                  <h3 class="card-title">Bondage</h3>
-                                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit.</p>
+                          <Link :href="route('comunidades.bondage')" class="text-decoration-none"> 
+                            <div class="card">
+                              <div class="row row-0">
+                                <div class="col-3">
+                                  <img src="@/assets/images/bondage.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
+                                </div>
+                                <div class="col">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Bondage</h3>
+                                    <p class="text-muted">Explorando desejos, cordas e confiança criam universo íntimo de bondage. Vivenciando limites.</p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                          <div class="card">
-                            <div class="row row-0">
-                              <div class="col-3">
-                                <img src="@/assets/images/cuckold.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
-                              </div>
-                              <div class="col">
-                                <div class="card-body">
-                                  <h3 class="card-title">Cuckold</h3>
-                                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit.</p>
+                          <Link :href="route('comunidades.cuckold')" class="text-decoration-none"> 
+                            <div class="card">
+                              <div class="row row-0">
+                                <div class="col-3">
+                                  <img src="@/assets/images/cuckold.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
+                                </div>
+                                <div class="col">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Cuckold</h3>
+                                    <p class="text-muted">No universo do cuckold, a paixão se amplia ao compartilhar a intimidade.</p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                          <div class="card">
-                            <div class="row row-0">
-                              <div class="col-3">
-                                <img src="@/assets/images/footfetish.jpeg" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
-                              </div>
-                              <div class="col">
-                                <div class="card-body">
-                                  <h3 class="card-title">Podolatria</h3>
-                                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit.</p>
+                          <Link :href="route('comunidades.podolatry')" class="text-decoration-none"> 
+                            <div class="card">
+                              <div class="row row-0">
+                                <div class="col-3">
+                                  <img src="@/assets/images/footfetish.jpeg" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
+                                </div>
+                                <div class="col">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Podolatria</h3>
+                                    <p class="text-muted">Explorando desejos ocultos, a podolatria revela paixões intensas e universos sensuais.</p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                          <div class="card">
-                            <div class="row row-0">
-                              <div class="col-3">
-                                <img src="@/assets/images/thresome.jpeg" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
-                              </div>
-                              <div class="col">
-                                <div class="card-body">
-                                  <h3 class="card-title">Thresome</h3>
-                                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti fugit.</p>
+                          <Link :href="route('comunidades.thresome')" class="text-decoration-none"> 
+                            <div class="card">
+                              <div class="row row-0">
+                                <div class="col-3">
+                                  <img src="@/assets/images/thresome.jpeg" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
+                                </div>
+                                <div class="col">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Thresome</h3>
+                                    <p class="text-muted">Desbravando fronteiras do prazer, o Threesome é um convite à intimidade compartilhada.</p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                       </div>
                     </div>    
@@ -155,7 +165,7 @@
                             <div class="card">                            
                               <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(https://i.pravatar.cc/150?img=${user.id})`"></div>
                               <span class="badge bg-lime badge-notification badge-blink" v-if="user.active"></span>
-                              <div class="card-body py-2">
+                              <div class="card-body py-2 px-3">
                                 <h3 class="card-title mb-0">{{user.name}} {{user.surname}}</h3>
                                 <p class="text-muted">{{user.country.name}}</p>
                               </div>
@@ -175,9 +185,7 @@
 </template>
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Head, useForm, Link } from '@inertiajs/vue3';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import InputError from '@/Components/InputError.vue';
+import { Head, Link } from '@inertiajs/vue3';
 
 const props = defineProps({
   users: Object,

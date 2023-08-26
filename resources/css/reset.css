@@ -114,3 +114,7 @@ a.nav-link.nav-link-users {
 .pointer {
     cursor: pointer;
 }
+
+.logo {
+    width: 100px;
+}

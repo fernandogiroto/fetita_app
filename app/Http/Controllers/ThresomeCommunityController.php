@@ -9,29 +9,29 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class SugarCommunityController extends Controller
+class ThresomeCommunityController extends Controller
 {
     public function index()
     {
-        $users_count = DB::table('users')->where('sugar_daddy', true)->count();
+        $users_count = DB::table('users')->where('thresome', true)->count();
 
         $user = Auth::user();
 
-        $users = User::where('sugar_daddy', true)
+        $users = User::where('thresome', true)
             ->with('country')
             ->where('id', '!=', $user->id)
             ->where('active', true)
             ->orderBy('last_activity', 'asc')
             ->paginate(12);
 
-        $users_new = User::where('sugar_daddy', true)
+        $users_new = User::where('thresome', true)
             ->with('country')
             ->where('id', '!=', $user->id)
             ->where('active', true)
             ->orderBy('created_at', 'desc')
             ->paginate(12);
 
-        return Inertia::render('Communities/Sugar', [
+        return Inertia::render('Communities/Thresome', [
             'user' => $user,
             'users' => $users,
             'users_new' => $users_new,
@@ -42,10 +42,10 @@ class SugarCommunityController extends Controller
     public function subscribre(Request $request)
     {
         $user = Auth::user();
-        $community = filter_var($request->sugar_daddy, FILTER_VALIDATE_BOOLEAN);
-        $user->sugar_daddy = $community;
+        $community = filter_var($request->thresome, FILTER_VALIDATE_BOOLEAN);
+        $user->thresome = $community;
         $user->save();
 
-        return Redirect::route('comunidades.sugar');
+        return Redirect::route('comunidades.thresome');
     }
 }
