@@ -127,20 +127,21 @@
                 <div class="row row-cards pt-5">
                   <div class="col-lg-6 pe-5">
                     <h2>O que é a fantasia Bondage?</h2>
-                    <p class="text-justify">Sugar Daddy é um termo utilizado para descrever um homem mais velho e financeiramente bem-sucedido que 
-                    oferece apoio financeiro e presentes luxuosos a uma pessoa mais jovem, geralmente uma mulher, em troca de
-                    companhia, relacionamento ou amizade. O conceito de "sugar daddy" está enraizado na dinâmica de 
-                    "relacionamento patrocinado", onde o homem, conhecido como o sugar daddy, desfruta da companhia e atenção 
-                    da pessoa mais jovem, conhecida como "sugar baby", que, por sua vez, recebe benefícios materiais e financeiros.
+                    <p class="text-justify">A fantasia de bondage envolve a excitação sexual associada à restrição física ou 
+                      imobilização de uma pessoa durante atividades íntimas. Essa prática pode incluir o uso de algemas, cordas, 
+                      fitas adesivas, vendas nos olhos, mordaças e outros acessórios para prender ou limitar os movimentos do 
+                      parceiro. O objetivo é criar uma sensação de vulnerabilidade, controle ou entrega, que pode ser altamente
+                       erótica para algumas pessoas.
                     </p>
                     <p class="text-justify">
-                    Essa relação costuma ser consensual e estabelece uma espécie de acordo ou "arranjo" entre ambas as partes, 
-                    onde os termos e condições do relacionamento são discutidos e acordados antecipadamente. Embora haja casos
-                    em que esses arranjos evoluem para relacionamentos emocionais genuínos, muitas vezes, a principal motivação 
-                    é a troca de suporte financeiro por companhia e atenção.
+                      O bondage pode variar em intensidade, desde uma simples restrição leve até elaboradas amarrações que podem
+                       envolver posições complexas. Algumas pessoas encontram prazer na sensação de estar à mercê do parceiro, 
+                       enquanto outras podem desfrutar da sensação de controle ao assumir o papel de dominador(a). Essa prática
+                        também pode ser combinada com outras atividades eróticas, como jogo de papéis, estimulação sensorial ou
+                         até mesmo flogging (uso de chicotes ou instrumentos similares).
                     </p>
                   </div>
-                  <div class="col-lg-6 sugar-info-image ps-5">
+                  <div class="col-lg-6 bondage-info-image ps-5">
                   </div>
                 </div>
               </section>  

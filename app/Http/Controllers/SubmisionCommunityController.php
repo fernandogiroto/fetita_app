@@ -14,21 +14,22 @@ class SubmisionCommunityController extends Controller
     public function index()
     {
         $users_count = DB::table('users')
-            ->where('submision', true)
+            ->where('submissive', true)
             ->orWhere('domme', true)
             ->orWhere('master', true)
             ->count();
 
+
         $user = Auth::user();
 
-        $users_submision = User::where('submision', true)
+        $users_submissive = User::where('submissive', true)
             ->with('country')
             ->where('id', '!=', $user->id)
             ->where('active', true)
             ->orderBy('last_activity', 'asc')
             ->paginate(12);
 
-        $users_submision_new = User::where('submision', true)
+        $users_submissive_new = User::where('submissive', true)
             ->with('country')
             ->where('id', '!=', $user->id)
             ->where('active', true)
@@ -55,23 +56,49 @@ class SubmisionCommunityController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(12);
 
+        $userBelongsToComunity = false;
+        if ($user->submissive || $user->domme || $user->master) {
+            $userBelongsToComunity = true;
+        }
+
         return Inertia::render('Communities/Submsion', [
             'user' => $user,
-            'users_submision' => $users_submision,
-            'users_submision_new' => $users_submision_new,
+            'users_submision' => $users_submissive,
+            'users_submision_new' => $users_submissive_new,
             'users_domme_master' => $users_domme_master,
             'users_domme_master_new' => $users_domme_master_new,
-            'users_count' => $users_count
+            'users_count' => $users_count,
+            'userBelongsToComunity' => $userBelongsToComunity
         ]);
     }
 
     public function subscribre(Request $request)
     {
         $user = Auth::user();
-        $community = filter_var($request->submision, FILTER_VALIDATE_BOOLEAN);
-        $user->submision = $community;
+        $submsive_choice = $request->submsive_selected;
+
+        if ($submsive_choice  === 'Domme') {
+            $user->domme = !$user->domme;
+        } else if ($submsive_choice  == 'Mestre') {
+            $user->master = !$user->master;
+        } else if ($submsive_choice  == 'Submisso') {
+            $user->submissive = !$user->submissive;
+        }
+
+        $user->save();
+        return Redirect::route('comunidades.submision');
+    }
+
+
+
+    public function unsubscribre(Request $request)
+    {
+        $user = Auth::user();
+        $user->domme = false;
+        $user->master = false;
+        $user->submissive = false;
         $user->save();
 
-        return Redirect::route('comunidades.submision');
+        return Redirect::route('comunidades.sugar');
     }
 }

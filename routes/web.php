@@ -63,11 +63,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/comunidades/sugar', [SugarCommunityController::class, 'index'])->name('comunidades.sugar');
 
     Route::put('/comunidades/sugar/subscribre', [SugarCommunityController::class, 'subscribre'])->name('comunidades.sugar.subscribre');
+    Route::put('/comunidades/sugar/unsubscribre', [SugarCommunityController::class, 'unsubscribre'])->name('comunidades.sugar.unsubscribre');
     Route::put('/comunidades/thresome/subscribre', [ThresomeCommunityController::class, 'subscribre'])->name('comunidades.thresome.subscribre');
     Route::put('/comunidades/submision/subscribre', [SubmisionCommunityController::class, 'subscribre'])->name('comunidades.submision.subscribre');
+    Route::put('/comunidades/submision/unsubscribre', [SubmisionCommunityController::class, 'unsubscribre'])->name('comunidades.submision.unsubscribre');
     Route::put('/comunidades/podolatry/subscribre', [PodolatryCommunityController::class, 'subscribre'])->name('comunidades.podolatry.subscribre');
     Route::put('/comunidades/cuckold/subscribre', [CuckoldCommunityController::class, 'subscribre'])->name('comunidades.cuckold.subscribre');
     Route::put('/comunidades/bondage/subscribre', [BondageCommunityController::class, 'subscribre'])->name('comunidades.bondage.subscribre');
 });
+
+
 
 require __DIR__ . '/auth.php';

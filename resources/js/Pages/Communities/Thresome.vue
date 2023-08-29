@@ -74,8 +74,7 @@
                               <div class="btn-list">
                                 <span class="d-none d-sm-inline">
                                   <Link :href="route('usuarios', {
-                                    sugarDaddy: true,
-                                    sugarMommy: true
+                                    thresome: true,
                                   })" class="btn btn-dark btn-users-cmg">
                                     Ver Todos
                                   </Link>
@@ -128,20 +127,24 @@
                 <div class="row row-cards pt-5">
                   <div class="col-lg-6 pe-5">
                     <h2>O que é a fantasia thresome?</h2>
-                    <p class="text-justify">Sugar Daddy é um termo utilizado para descrever um homem mais velho e financeiramente bem-sucedido que 
-                    oferece apoio financeiro e presentes luxuosos a uma pessoa mais jovem, geralmente uma mulher, em troca de
-                    companhia, relacionamento ou amizade. O conceito de "sugar daddy" está enraizado na dinâmica de 
-                    "relacionamento patrocinado", onde o homem, conhecido como o sugar daddy, desfruta da companhia e atenção 
-                    da pessoa mais jovem, conhecida como "sugar baby", que, por sua vez, recebe benefícios materiais e financeiros.
+                    <p class="text-justify">
+                      A fantasia de threesome (ménage à trois) envolve o desejo ou interesse em participar de um encontro sexual
+                       ou romântico com três pessoas. Essa fantasia pode se manifestar de diferentes maneiras, como dois parceiros
+                        sexuais e uma terceira pessoa, ou três indivíduos que compartilham intimidade e experiências juntos.
                     </p>
                     <p class="text-justify">
-                    Essa relação costuma ser consensual e estabelece uma espécie de acordo ou "arranjo" entre ambas as partes, 
-                    onde os termos e condições do relacionamento são discutidos e acordados antecipadamente. Embora haja casos
-                    em que esses arranjos evoluem para relacionamentos emocionais genuínos, muitas vezes, a principal motivação 
-                    é a troca de suporte financeiro por companhia e atenção.
+                      Threesomes são fantasias relativamente comuns e podem ser motivados por uma variedade de fatores, incluindo 
+                      curiosidade, desejo de novas experiências, busca por maior prazer sexual, exploração de dinâmicas de 
+                      grupo ou até mesmo questões de poder e submissão.
+                    </p>
+                    <p class="text-justify">
+                      É importante notar que a realização de um threesome requer comunicação aberta, confiança e consentimento 
+                      de todas as partes envolvidas. Antes de prosseguir, é crucial que todos os parceiros estejam de acordo e 
+                      confortáveis com a ideia. A falta de comunicação e consentimento claro pode levar a problemas emocionais,
+                       conflitos e arrependimentos posteriores.
                     </p>
                   </div>
-                  <div class="col-lg-6 sugar-info-image ps-5">
+                  <div class="col-lg-6 thresome-info-image ps-5">
                   </div>
                 </div>
               </section>  

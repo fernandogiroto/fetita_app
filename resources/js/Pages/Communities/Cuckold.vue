@@ -74,8 +74,7 @@
                               <div class="btn-list">
                                 <span class="d-none d-sm-inline">
                                   <Link :href="route('usuarios', {
-                                    sugarDaddy: true,
-                                    sugarMommy: true
+                                    cuckold: true,
                                   })" class="btn btn-dark btn-users-cmg">
                                     Ver Todos
                                   </Link>
@@ -128,20 +127,19 @@
                 <div class="row row-cards pt-5">
                   <div class="col-lg-6 pe-5">
                     <h2>O que é a fantasia cuckold?</h2>
-                    <p class="text-justify">Sugar Daddy é um termo utilizado para descrever um homem mais velho e financeiramente bem-sucedido que 
-                    oferece apoio financeiro e presentes luxuosos a uma pessoa mais jovem, geralmente uma mulher, em troca de
-                    companhia, relacionamento ou amizade. O conceito de "sugar daddy" está enraizado na dinâmica de 
-                    "relacionamento patrocinado", onde o homem, conhecido como o sugar daddy, desfruta da companhia e atenção 
-                    da pessoa mais jovem, conhecida como "sugar baby", que, por sua vez, recebe benefícios materiais e financeiros.
+                    <p class="text-justify">A fantasia de cuckold envolve um indivíduo que sente excitação sexual ao observar 
+                      ou imaginar seu parceiro(a) sexual envolvido(a) com outra pessoa, geralmente em um contexto de relação
+                       sexual. A pessoa que tem essa fantasia, conhecida como "cuckold", muitas vezes experimenta uma combinação
+                        de sentimentos, incluindo excitação, humilhação erótica e submissão.
                     </p>
                     <p class="text-justify">
-                    Essa relação costuma ser consensual e estabelece uma espécie de acordo ou "arranjo" entre ambas as partes, 
-                    onde os termos e condições do relacionamento são discutidos e acordados antecipadamente. Embora haja casos
-                    em que esses arranjos evoluem para relacionamentos emocionais genuínos, muitas vezes, a principal motivação 
-                    é a troca de suporte financeiro por companhia e atenção.
+                      Nesse cenário, o cuckold pode sentir prazer ao testemunhar seu parceiro(a) desfrutando de intimidade com 
+                      outra pessoa, e essa excitação pode ser intensificada pela sensação de inadequação, submissão ou pela 
+                      dinâmica de poder envolvida na situação. Às vezes, o cuckold pode ser excluído ou rebaixado pelo(a) 
+                      parceiro(a) dominante ou pelo amante, adicionando uma dimensão de humilhação erótica à fantasia.
                     </p>
                   </div>
-                  <div class="col-lg-6 sugar-info-image ps-5">
+                  <div class="col-lg-6 cuckold-info-image ps-5">
                   </div>
                 </div>
               </section>  

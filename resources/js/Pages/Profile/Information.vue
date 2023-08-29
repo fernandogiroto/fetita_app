@@ -2,7 +2,7 @@
     <div class="col d-flex flex-column">
         <div class="card-body">
           <h2 class="mb-4">{{user.name}} / Minha Conta</h2>
-          <h3 class="card-title">Detalhes da Conta</h3>
+          <h3 class="card-title">Foto de Perfíl</h3>
           <!-- USER IMAGE AVATAR -->
           <form @submit.prevent="submitAvatar">
             <div class="row align-items-center mb-3">
@@ -30,14 +30,19 @@
               <div class="col-md">
                 <div class="form-label">Usuário</div>
                 <input type="text" class="form-control" v-model="form.nickname">
+                <p class="text-danger" v-if="form.errors.nickname">{{form.errors.nickname}}</p>
+
               </div>
               <div class="col-md">
                 <div class="form-label">Nome</div>
                 <input type="text" class="form-control" v-model="form.name">
+                <p class="text-danger" v-if="form.errors.name">{{form.errors.name}}</p>
               </div>
               <div class="col-md">
                 <div class="form-label">Sobrenome</div>
                 <input type="text" class="form-control" v-model="form.surname">
+                <p class="text-danger" v-if="form.errors.surname">{{form.errors.surname}}</p>
+
               </div>
 
               <div class="col-md">
@@ -49,6 +54,8 @@
                   <option >Mulher Transgênero</option>
                   <option >Não-Binário</option>
                 </select>
+                <p class="text-danger" v-if="form.errors.gender">{{form.errors.gender}}</p>
+                
               </div>
             </div>
             <div>
@@ -58,6 +65,8 @@
                     <select class="form-select" v-model="form.country">
                       <option v-for="country in countrys" :key="country.id" :selected="form.country">{{country.name}}</option>
                     </select>
+                    <p class="text-danger" v-if="form.errors.country">{{form.errors.country}}</p>
+
                   </div>
                 <!-- <div class="col-md-4">
                   <div class="form-label">Estado</div>
@@ -72,18 +81,7 @@
             <div class="mt-2 mb-3 mb-0">
               <label class="form-label">Descrição</label>
               <textarea rows="5" class="form-control" placeholder="Escreva uma breve descrição sobre você" v-model="form.description"></textarea>
-            </div>
-            <h3 class="card-title mt-4">Email</h3>
-            <div>
-              <div class="row g-2">
-                <div class="col-auto">
-                  <input type="text" class="form-control w-auto" :value="user.email">
-                </div>
-                <div class="col-auto"><a href="#" class="btn">
-                    Alterar
-                  </a>
-                </div>
-              </div>
+              <p class="text-danger" v-if="form.errors.description">{{form.errors.description}}</p>
             </div>
             <h3 class="card-title mt-4">Senha</h3>
             <p class="card-subtitle">Pode definir uma palavra-passe permanente se não pretender utilizar códigos de início de sessão temporários.</p>
@@ -123,6 +121,20 @@ import { useForm,usePage } from '@inertiajs/vue3'
 import { router } from '@inertiajs/vue3'
 import { ref } from 'vue';
 import LightBox from '@/Components/LightBox.vue'
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
+
+const notify = (type,msg) => {
+  if (type == 'success'){
+      toast.success(msg, {
+      autoClose: 2000,
+    });
+  } else if(type == 'error'){
+      toast.error(msg, {
+      autoClose: 3000,
+    });
+  }
+}
 
 const user = usePage().props.auth.user;
 import avatarDefault from '@/Assets/Images/avatar-default.jpeg';
@@ -154,11 +166,11 @@ const avatarform = useForm({
 const submitUpdate = () =>{
   form.patch(route('profile.update'),{
     onSuccess: (response) =>{
-      router.visit(route("profile.edit"),
-      { 
-        preserveScroll:true
-      })
-    },
+      notify('success','Perfil Atualizado')
+      router.visit(route("profile.edit"),{ preserveScroll:true})
+    },onError: (response)=>{
+      notify('error','Corrija os erros e tente novamente')
+    }
   })
 }
 
@@ -167,15 +179,17 @@ const submitAvatar = () => {
   formData.append('avatar', avatarform.avatar.value);
   avatarform.post(route("profile.update.avatar"), {
     onSuccess: (response) =>{
+      notify('success','Perfil Atualizado')
       avatar.value = response.props.user.avatar
       avatarform.avatar.value = null;
       avatarInput.value = null
-      router.visit(route("profile.edit"),
-      { 
-        preserveScroll:true
-      })
+      router.visit(route("profile.edit"),{  preserveScroll:true})
+    },onError:(response)=>{
+      notify('error','Corrija os erros e tente novamente')
     },
+    
       forceFormData: true,
+      
   });
 };
 
@@ -183,10 +197,13 @@ const deleteAvatar = () => {
   avatarform.post(route("profile.delete.avatar"), {
     onSuccess: () =>{
       avatar.value = avatarDefault
+      notify('success','Imagem apagada com sucesso')
       router.reload({
         preserveScroll: true
       });
-    }
+    },onError:(response)=>{
+      notify('error','Erro ao tentar apagar imagem')
+    },
   });
 };
 </script>

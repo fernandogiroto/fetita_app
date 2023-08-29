@@ -38,6 +38,44 @@ section {
     background-position: center center;
 }
 
+.podolatry-info-image {
+    border-radius: 10px;
+    justify-content: center;
+    background-size: cover;
+    background-image: url('@/Assets/images/podolatry_description.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.thresome-info-image {
+    border-radius: 10px;
+    justify-content: center;
+    background-size: cover;
+    background-image: url('@/Assets/images/thresome_description.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cuckold-info-image {
+    border-radius: 10px;
+    justify-content: center;
+    background-size: cover;
+    background-image: url('@/Assets/images/cuckold_description.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bondage-info-image {
+    border-radius: 10px;
+    justify-content: center;
+    background-size: cover;
+    background-image: url('@/Assets/images/bondage_description.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+
 .card-header-cm-users {
     background: #f6f8fb;
 }

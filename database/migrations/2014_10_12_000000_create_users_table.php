@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('sugar_daddy')->nullable();
             $table->boolean('sugar_mommy')->nullable();
-            $table->boolean('submision')->nullable();
+            $table->boolean('sugar_baby')->nullable();
+            $table->boolean('submissive')->nullable();
             $table->boolean('domme')->nullable();
             $table->boolean('master')->nullable();
             $table->boolean('bondage')->nullable();

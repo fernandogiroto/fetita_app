@@ -35,9 +35,13 @@ class UserController extends Controller
                     $sugar_mommy = filter_var(request()->input('sugarMommy'), FILTER_VALIDATE_BOOLEAN);
                     $query->where('sugar_mommy', 'like', "%{$sugar_mommy}%");
                 }
-                if (request()->has('submision')) {
-                    $submision = filter_var(request()->input('submision'), FILTER_VALIDATE_BOOLEAN);
-                    $query->where('submision', 'like', "%{$submision}%");
+                if (request()->has('sugarBaby')) {
+                    $sugar_baby = filter_var(request()->input('sugarBaby'), FILTER_VALIDATE_BOOLEAN);
+                    $query->where('sugar_baby', 'like', "%{$sugar_baby}%");
+                }
+                if (request()->has('submissive')) {
+                    $submissive = filter_var(request()->input('submissive'), FILTER_VALIDATE_BOOLEAN);
+                    $query->where('submissive', 'like', "%{$submissive}%");
                 }
                 if (request()->has('bondage')) {
                     $bondage = filter_var(request()->input('bondage'), FILTER_VALIDATE_BOOLEAN);

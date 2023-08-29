@@ -38,9 +38,10 @@
                     </div>
                     <div class="card-footer p-0">
                       
-                      <form @submit.prevent="subscribe">
+                      <button class="btn btn-primary btn-square w-100 p-3" data-bs-toggle="modal" data-bs-target="#modal-success" v-if="!userBelongsToComunity">Me Inscrever na Comunidade</button>
+                      <form @submit.prevent="unSubscribe" v-else>
                         <button class="btn btn-primary btn-square w-100 p-3">
-                          {{ form.submision ? 'Sair da Comunidade' : 'Me Inscrever na Comunidade' }}
+                          Sair da Comunidade
                         </button>
                       </form>
                     </div>
@@ -201,7 +202,8 @@
                     </div>
                   </div>
                 </div>
-              </section>        
+              </section>   
+              <!-- DESCRIPTION  -->
               <section>
                 <div class="row row-cards pt-5">
                   <div class="col-lg-6 pe-5">
@@ -223,6 +225,38 @@
                   </div>
                 </div>
               </section>  
+
+              <!-- MODAL -->
+              <div class="modal modal-blur fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-status bg-danger"></div>  
+                    <form @submit.prevent="subscribe">
+                      <div class="modal-body text-center py-4">
+                        <h3>Entrar na comunidade como</h3>
+                          <select class="form-select" v-model="userSugarPreference">
+                            <option>Domme</option>
+                            <option>Mestre</option>
+                            <option>Submisso(a)</option>
+                          </select>
+                      </div>
+                      <div class="modal-footer">
+                        <div class="w-100">
+                          <div class="row">
+                            <div class="col">
+                              <button type="submit" class="btn btn-dark w-100" data-bs-dismiss="modal">
+                                Entrar na Comunidade
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </template>
@@ -232,6 +266,8 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, useForm, Link, usePage } from '@inertiajs/vue3';
+import {ref} from 'vue';
+
 
 const props = defineProps({
   users_submision: Object,
@@ -239,23 +275,34 @@ const props = defineProps({
   users_domme_master: Object,
   users_domme_master_new: Object,
   users_count: Number,
-  user: Object
+  user: Object,
+  userBelongsToComunity: Boolean
 });
 
+const userSugarPreference = ref('');
+const userBelongsToComunity = ref(props.userBelongsToComunity);
 const user = usePage().props.auth.user;
-
 const form = useForm({
-    subscribe: user.name,
-    submision: !!user.submision
+  submsive_selected: null,
 });
 
 const subscribe = () => {
-    form.submision = !form.submision;
+  form.submsive_selected = userSugarPreference.value
     form.put(route('comunidades.submision.subscribre'), {
         preserveScroll: true,
         onSuccess: (response) => {
-          form.submision = response.props.user.submision;
+          userBelongsToComunity.value = true;
           console.log(response)
+        }
+    });
+};
+
+const unSubscribe = () => {
+  form.submsive_selected = null
+    form.put(route('comunidades.submision.unsubscribre'), {
+        preserveScroll: true,
+        onSuccess: (response) => {
+          userBelongsToComunity.value = false;
         }
     });
 };

@@ -74,8 +74,7 @@
                               <div class="btn-list">
                                 <span class="d-none d-sm-inline">
                                   <Link :href="route('usuarios', {
-                                    sugarDaddy: true,
-                                    sugarMommy: true
+                                    podolatry: true,
                                   })" class="btn btn-dark btn-users-cmg">
                                     Ver Todos
                                   </Link>
@@ -128,20 +127,20 @@
                 <div class="row row-cards pt-5">
                   <div class="col-lg-6 pe-5">
                     <h2>O que é a fantasia podolatria?</h2>
-                    <p class="text-justify">Sugar Daddy é um termo utilizado para descrever um homem mais velho e financeiramente bem-sucedido que 
-                    oferece apoio financeiro e presentes luxuosos a uma pessoa mais jovem, geralmente uma mulher, em troca de
-                    companhia, relacionamento ou amizade. O conceito de "sugar daddy" está enraizado na dinâmica de 
-                    "relacionamento patrocinado", onde o homem, conhecido como o sugar daddy, desfruta da companhia e atenção 
-                    da pessoa mais jovem, conhecida como "sugar baby", que, por sua vez, recebe benefícios materiais e financeiros.
+                    <p class="text-justify">A podolatria é um fetiche sexual que envolve uma atração ou excitação intensa em
+                       relação aos pés. Pessoas com esse fetiche, conhecidas como "podólatras", podem experimentar prazer ao
+                      tocar, acariciar, cheirar, lamber, beijar ou massagear os pés de outra pessoa. A fantasia de podolatria
+                       pode variar em intensidade, desde um simples interesse até um desejo mais profundo e erótico.
                     </p>
                     <p class="text-justify">
-                    Essa relação costuma ser consensual e estabelece uma espécie de acordo ou "arranjo" entre ambas as partes, 
-                    onde os termos e condições do relacionamento são discutidos e acordados antecipadamente. Embora haja casos
-                    em que esses arranjos evoluem para relacionamentos emocionais genuínos, muitas vezes, a principal motivação 
-                    é a troca de suporte financeiro por companhia e atenção.
+                      A fantasia de podolatria não é incomum e pode ser explorada entre parceiros consensuais como parte de
+                       sua vida sexual. Algumas pessoas acham os pés eróticos devido a sua aparência, textura e até mesmo o 
+                       odor característico que eles podem ter. Outras vezes, o fetiche pode estar ligado a questões de poder, 
+                       submissão ou dominação, onde uma pessoa pode encontrar prazer em adorar os pés de outra pessoa como 
+                       um ato de submissão.
                     </p>
                   </div>
-                  <div class="col-lg-6 sugar-info-image ps-5">
+                  <div class="col-lg-6 podolatry-info-image ps-5">
                   </div>
                 </div>
               </section>  

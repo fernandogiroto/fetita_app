@@ -37,10 +37,10 @@
                       </ul>
                     </div>
                     <div class="card-footer p-0">
-                      
-                      <form @submit.prevent="subscribe">
+                      <button class="btn btn-primary btn-square w-100 p-3" data-bs-toggle="modal" data-bs-target="#modal-success" v-if="!userBelongsToComunity">Me Inscrever na Comunidade</button>
+                      <form @submit.prevent="unSubscribe" v-else>
                         <button class="btn btn-primary btn-square w-100 p-3">
-                          {{ form.sugar_daddy ? 'Sair da Comunidade' : 'Me Inscrever na Comunidade' }}
+                          Sair da Comunidade
                         </button>
                       </form>
                     </div>
@@ -75,7 +75,8 @@
                                 <span class="d-none d-sm-inline">
                                   <Link :href="route('usuarios', {
                                     sugarDaddy: true,
-                                    sugarMommy: true
+                                    sugarMommy: true,
+                                    sugarBaby: true
                                   })" class="btn btn-dark btn-users-cmg">
                                     Ver Todos
                                   </Link>
@@ -147,6 +148,38 @@
               </section>  
             </div>
           </div>
+          
+          
+          <!-- MODAL -->
+          <div class="modal modal-blur fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-status bg-danger"></div>  
+                <form @submit.prevent="subscribe">
+                  <div class="modal-body text-center py-4">
+                    <h3>Entrar na comunidade como</h3>
+                      <select class="form-select" v-model="userSugarPreference">
+                        <option v-if="user.gender == 'M'">{{ user }} </option>
+                        <option>Sugar Mommy</option>
+                        <option>Sugar Baby</option>
+                      </select>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="w-100">
+                      <div class="row">
+                        <div class="col">
+                          <button type="submit" class="btn btn-dark w-100" data-bs-dismiss="modal">
+                            Entrar na Comunidade
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </template>
     </AppLayout>
 </template>
@@ -154,29 +187,43 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, useForm, Link, usePage } from '@inertiajs/vue3';
+import {ref} from 'vue';
 
 const props = defineProps({
   users: Object,
   users_new: Object,
   users_count: Number,
-  user: Object
+  user: Object,
+  userBelongsToComunity: Boolean
 });
 
+const userSugarPreference = ref('');
+const userBelongsToComunity = ref(props.userBelongsToComunity);
 const user = usePage().props.auth.user;
-
 const form = useForm({
-    subscribe: user.name,
-    sugar_daddy: !!user.sugar_daddy
+    submsive_selected: null,
 });
 
 const subscribe = () => {
-    form.sugar_daddy = !form.sugar_daddy;
+  form.submsive_selected = userSugarPreference.value
     form.put(route('comunidades.sugar.subscribre'), {
         preserveScroll: true,
         onSuccess: (response) => {
-          form.sugar_daddy = response.props.user.sugar_daddy;
-          console.log(response)
+          userBelongsToComunity.value = true;
         }
     });
 };
+
+const unSubscribe = () => {
+  form.submsive_selected = null
+    form.put(route('comunidades.sugar.unsubscribre'), {
+        preserveScroll: true,
+        onSuccess: (response) => {
+          userBelongsToComunity.value = false;
+        }
+    });
+};
+
+
+
 </script>

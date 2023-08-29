@@ -62,7 +62,7 @@
                                 <div class="col">
                                   <div class="card-body">
                                     <h3 class="card-title">Submissão</h3>
-                                    <p class="text-muted">Na entrega da submissão, desenha-se uma dança íntima de confiança e desejo.</p>
+                                    <p class="text-muted">Na entrega da submissão, desenha-se uma dança íntima de confiança, idolatria e desejo.</p>
                                   </div>
                                 </div>
                               </div>
@@ -96,7 +96,7 @@
                                 <div class="col">
                                   <div class="card-body">
                                     <h3 class="card-title">Cuckold</h3>
-                                    <p class="text-muted">No universo do cuckold, a paixão se amplia ao compartilhar a intimidade.</p>
+                                    <p class="text-muted">No universo do cuckold, a paixão e a seduzação se ampliam ao compartilhar a intimidade.</p>
                                   </div>
                                 </div>
                               </div>
@@ -130,7 +130,7 @@
                                 <div class="col">
                                   <div class="card-body">
                                     <h3 class="card-title">Thresome</h3>
-                                    <p class="text-muted">Desbravando fronteiras do prazer, o Threesome é um convite à intimidade compartilhada.</p>
+                                    <p class="text-muted">Desbravando fronteiras do prazer, no um convite para uma intimidade compartilhada.</p>
                                   </div>
                                 </div>
                               </div>

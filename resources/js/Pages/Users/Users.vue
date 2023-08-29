@@ -38,6 +38,10 @@
                           <span class="form-check-label">Sugar Mommy</span>
                         </label>
                         <label class="form-check">
+                          <input type="checkbox" class="form-check-input" name="form-type[]" v-model="sugarBaby">
+                          <span class="form-check-label">Sugar Baby</span>
+                        </label>
+                        <label class="form-check">
                           <input type="checkbox" class="form-check-input" name="form-type[]" v-model="submision">
                           <span class="form-check-label">Submisso(a)</span>
                         </label>
@@ -129,23 +133,25 @@ let search = ref(props.filters.search);
 let country = ref(props.filters.country);
 let sugarDaddy = ref(!!props.filters.sugarDaddy);
 let sugarMommy = ref(!!props.filters.sugarMommy);
+let sugarBaby = ref(!!props.filters.sugarBaby);
 let submision = ref(!!props.filters.submision);
-let bondage = ref(props.filters.bondage);
-let cuckold = ref(props.filters.cuckold);
-let podolatry = ref(props.filters.podolatry);
-let thresome = ref(props.filters.thresome);
+let bondage = ref(!!props.filters.bondage);
+let cuckold = ref(!!props.filters.cuckold);
+let podolatry = ref(!!props.filters.podolatry);
+let thresome = ref(!!props.filters.thresome);
 let active = ref(props.filters.active);
 
 
 watch(
-  [search, country, sugarDaddy,sugarMommy,submision,bondage,cuckold,podolatry,thresome,active],
-  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,submisionValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
+  [search, country, sugarDaddy,sugarMommy,sugarBaby,submision,bondage,cuckold,podolatry,thresome,active],
+  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,sugarBabyValue,submisionValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
     const queryParams = {};
 
     if (searchValue !== '') {queryParams.search = searchValue; }
     if (countryValue !== false && countryValue !== 'no_location') {queryParams.country = countryValue; }
     if (sugarDaddyValue !== false) {queryParams.sugarDaddy = sugarDaddyValue;}
     if (sugarMommyValue !== false) {queryParams.sugarMommy = sugarMommyValue;}
+    if (sugarBabyValue !== false) {queryParams.sugarBaby = sugarBabyValue;}
     if (submisionValue !== false) {queryParams.submision = submisionValue;}
     if (bondageValue !== false) {queryParams.bondage = bondageValue;}
     if (cuckoldValue !== false) {queryParams.cuckold = cuckoldValue;}

@@ -8,7 +8,7 @@
           <div class="img-responsive img-responsive-1x1 border gallery-users" :style="`background-image: url(${src})`"></div>
         </div>
         <div class="col-3" v-if="myProfile && showAddImage < 4">
-          <div class="img-responsive img-responsive-1x1 border gallery-users pointer" :style="`background-image: url(${plusImage})`" data-bs-toggle="modal" data-bs-target="#modal-success"></div>
+          <div class="img-responsive img-responsive-1x1 border gallery-users pointer" :style="`background-image: url(${plusImage})`" data-bs-toggle="modal" data-bs-target="#add-image-gallery"></div>
       </div>
     </div>
     <vue-easy-lightbox
@@ -22,11 +22,11 @@
     </template>
     </vue-easy-lightbox>
 
-    <div class="modal modal-blur fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal modal-blur fade" id="add-image-gallery" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
         <div class="modal-content">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          <div class="modal-status bg-success"></div>
+          <div class="modal-status bg-dark"></div>
           <form @submit.prevent="submitImage">
             <div class="modal-body text-center py-4">
               <h3>Adicionar a Galeria</h3>
@@ -36,7 +36,7 @@
               <div class="w-100">
                 <div class="row">
                   <div class="col">
-                    <button type="submit" class="btn btn-success w-100" data-bs-dismiss="modal">
+                    <button type="submit" class="btn btn-dark w-100" data-bs-dismiss="modal">
                       Adicionar Imagem
                     </button>
                   </div>
@@ -93,13 +93,17 @@ const submitImage = () => {
   galerryForm.post(route("profile.update.gallery"), {
     onSuccess: (response) =>{
       console.log(response.props)
+      notify('success','Imagem adicionada com sucesso')
       imgsRef.value =  JSON.parse(response.props.user.gallery); 
       router.visit(route("profile.edit"),
       { 
         only: ['images'],
         preserveScroll:true
       })
+    },onError:(response)=>{
+      notify('error','Erro ao tentar adicionar imagem')
     },
+    
     forceFormData: true,
   });
 };
