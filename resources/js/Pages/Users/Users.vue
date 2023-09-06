@@ -4,7 +4,7 @@
   <AppLayout>
       <template #content>
       <!-- Page header -->
-      <div class="page-header overlay-dark d-print-none">
+      <div class="page-header page-users overlay-dark d-print-none">
           <div class="container-xl">
             <div class="row g-2 align-items-center overlay-content">
               <div class="col">
@@ -27,7 +27,7 @@
                     <form class="sticky-top">
                       <div class="form-label">Usuário</div>
                       <input type="text" class="form-control mb-4" name="example-text-input" placeholder="Pesquise pelo nome"  v-model="search">       
-                      <div class="form-label">Localização</div>
+                      <div class="form-label">Comunidades</div>
                       <div class="mb-4">
                         <label class="form-check">
                           <input type="checkbox" class="form-check-input" name="form-type[]" v-model="sugarDaddy">
@@ -40,6 +40,14 @@
                         <label class="form-check">
                           <input type="checkbox" class="form-check-input" name="form-type[]" v-model="sugarBaby">
                           <span class="form-check-label">Sugar Baby</span>
+                        </label>
+                        <label class="form-check">
+                          <input type="checkbox" class="form-check-input" name="form-type[]" v-model="domme">
+                          <span class="form-check-label">Domme</span>
+                        </label>
+                        <label class="form-check">
+                          <input type="checkbox" class="form-check-input" name="form-type[]" v-model="master">
+                          <span class="form-check-label">Mestre</span>
                         </label>
                         <label class="form-check">
                           <input type="checkbox" class="form-check-input" name="form-type[]" v-model="submision">
@@ -135,16 +143,17 @@ let sugarDaddy = ref(!!props.filters.sugarDaddy);
 let sugarMommy = ref(!!props.filters.sugarMommy);
 let sugarBaby = ref(!!props.filters.sugarBaby);
 let submision = ref(!!props.filters.submision);
+let domme = ref(!!props.filters.domme);
+let master = ref(!!props.filters.master);
 let bondage = ref(!!props.filters.bondage);
 let cuckold = ref(!!props.filters.cuckold);
 let podolatry = ref(!!props.filters.podolatry);
 let thresome = ref(!!props.filters.thresome);
 let active = ref(props.filters.active);
 
-
 watch(
-  [search, country, sugarDaddy,sugarMommy,sugarBaby,submision,bondage,cuckold,podolatry,thresome,active],
-  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,sugarBabyValue,submisionValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
+  [search, country, sugarDaddy,sugarMommy,sugarBaby,submision,domme,master,bondage,cuckold,podolatry,thresome,active],
+  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,sugarBabyValue,submisionValue,dommeValue,masterValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
     const queryParams = {};
 
     if (searchValue !== '') {queryParams.search = searchValue; }
@@ -153,6 +162,8 @@ watch(
     if (sugarMommyValue !== false) {queryParams.sugarMommy = sugarMommyValue;}
     if (sugarBabyValue !== false) {queryParams.sugarBaby = sugarBabyValue;}
     if (submisionValue !== false) {queryParams.submision = submisionValue;}
+    if (dommeValue !== false) {queryParams.domme = dommeValue;}
+    if (masterValue !== false) {queryParams.master = masterValue;}
     if (bondageValue !== false) {queryParams.bondage = bondageValue;}
     if (cuckoldValue !== false) {queryParams.cuckold = cuckoldValue;}
     if (podolatryValue !== false) {queryParams.podolatry = podolatryValue;}
@@ -173,6 +184,8 @@ const reset = ()=>{
   sugarDaddy.value=false,
   sugarMommy.value=false,
   submision.value=false,
+  domme.value=false,
+  master.value=false,
   bondage.value=false,
   cuckold.value=false,
   podolatry.value=false,
@@ -181,10 +194,5 @@ const reset = ()=>{
   router.get('/usuarios', {
       preserveState: true
   });
-
 }
-
-
-
-
 </script>

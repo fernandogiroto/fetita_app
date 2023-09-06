@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
     // PROFILE
     Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/perfil/communities', [ProfileController::class, 'updateCommunities'])->name('profile.communities.update');
+
     Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/upload/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.update.avatar');
     Route::post('/delete/avatar', [ProfileController::class, 'deleteAvatar'])->name('profile.delete.avatar');

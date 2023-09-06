@@ -4,7 +4,7 @@
     <AppLayout>
         <template #content>
         <!-- Page header -->
-        <div class="page-contact overlay-dark d-print-none">
+        <div class="page-banner page-threesome  overlay-dark d-print-none">
             <div class="container-xl">
             </div>
           </div>

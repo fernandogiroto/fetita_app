@@ -45,10 +45,11 @@
   import { ref } from 'vue';
 
   const props = defineProps({
-    countrys: Object
+    countrys: Object,
+    tab: String
   });
 
-  const tab = ref('my-account');
+  const tab = ref(props.tab);
   function changeTab(openTab){
     tab.value = openTab;
   }

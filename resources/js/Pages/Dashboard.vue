@@ -5,7 +5,7 @@
         <div class="page">
           <div class="page-wrapper">
             <!-- Banner Intro -->
-            <div class="page-header overlay-dark mt-0 d-print-none">
+            <div class="page-header page-dashboard overlay-dark mt-0 d-print-none">
               <div class="container-xl">
                 <div class="row g-2 align-items-center overlay-content">
                   <div class="col-6">

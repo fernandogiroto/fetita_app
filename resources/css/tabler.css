@@ -20124,24 +20124,64 @@ Navbar vertical
   flex-direction: column;
   justify-content: center;
   background-size: cover;
-  background-image: url('https://images.ecestaticos.com/j1bcJqKNop0Lcz0S0yqjcoYbt04=/16x193:2059x1276/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F0ab%2Ff5d%2Fc54%2F0abf5dc54c6bfc143f96872052ce6d2f.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   padding: 6rem 0rem 6rem 0rem;
 }
 
-.page-contact {
+.page-banner {
   display: flex;
   flex-wrap: wrap;
   min-height: 2.25rem;
   flex-direction: column;
   justify-content: center;
   background-size: cover;
-  background-image: url('https://fantasyrooms.com/blog/wp-content/uploads/2023/01/3-imagenesblog43.webp');
   background-repeat: no-repeat;
   background-position: center center;
   padding: 12rem 0rem 12rem 0rem;
 }
+
+.page-dashboard {
+  background-image: url('@/Assets/images/page_header.jpg');
+}
+
+.page-users {
+  background-image: url('@/Assets/images/page_header.jpg');
+}
+
+.page-user {
+  background-image: url('@/Assets/images/fetish_banner.avif');
+}
+
+.page-sugar {
+  background-image: url('@/Assets/images/sugar-mommy_banner.jpeg');
+}
+
+.page-users {
+  background-image: url('@/Assets/images/bdsm.webp');
+}
+
+.page-bondage {
+  background-image: url('@/Assets/images/bondage-banner.webp');
+}
+
+.page-cuckold {
+  background-image: url('@/Assets/images/cuckold_banner.jpeg');
+}
+
+.page-podolatry {
+  background-image: url('@/Assets/images/foot_fetish_banner.png');
+}
+
+.page-submision {
+  background-image: url('@/Assets/images/submissive_banner.jpeg');
+}
+
+.page-threesome {
+  background-image: url('@/Assets/images/threesome_banner.jpeg');
+}
+
+
 
 .overlay-dark {
   position: relative;

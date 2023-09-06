@@ -54,11 +54,15 @@ class SugarCommunityController extends Controller
         $user = Auth::user();
         $sugar_choice = $request->sugar_selected;
 
+
+
         if ($sugar_choice  === 'Sugar Daddy') {
             $user->sugar_daddy = !$user->sugar_daddy;
         } else if ($sugar_choice  == 'Sugar Mommy') {
+
             $user->sugar_mommy = !$user->sugar_mommy;
         } else if ($sugar_choice  == 'Sugar Baby') {
+
             $user->sugar_baby = !$user->sugar_baby;
         }
         $user->save();

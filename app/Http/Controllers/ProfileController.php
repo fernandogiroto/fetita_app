@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\CommunitiesUpdateRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\RedirectResponse;
@@ -24,7 +25,8 @@ class ProfileController extends Controller
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
             'user' =>  Auth::user()->load('country'),
-            'countrys' => Country::all()
+            'countrys' => Country::all(),
+            'tab' => 'my-account'
         ]);
     }
 
@@ -51,6 +53,59 @@ class ProfileController extends Controller
         $request->user()->country_id = $country->id;
         $request->user()->save();
 
+        return Redirect::route('profile.edit');
+    }
+
+
+    /**
+     * Update the user's profile information.
+     */
+    public function updateCommunities(CommunitiesUpdateRequest $request): RedirectResponse
+    {
+        $request->user()->fill($request->validated());
+
+
+
+        $sugar_daddy = filter_var(request()->input('sugar_daddy'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->sugar_daddy = $sugar_daddy;
+
+
+        $sugar_mommy = filter_var(request()->input('sugar_mommy'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->sugar_mommy = $sugar_mommy;
+
+
+        $sugar_baby = filter_var(request()->input('sugar_baby'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->sugar_baby = $sugar_baby;
+
+
+        $bondage = filter_var(request()->input('bondage'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->bondage = $bondage;
+
+
+        $cuckold = filter_var(request()->input('cuckold'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->cuckold = $cuckold;
+
+
+        $podolatry = filter_var(request()->input('podolatry'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->podolatry = $podolatry;
+
+
+        $submissive = filter_var(request()->input('submissive'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->submissive = $submissive;
+
+
+        $domme = filter_var(request()->input('domme'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->domme = $domme;
+
+
+        $master = filter_var(request()->input('master'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->master = $master;
+
+
+        $thresome = filter_var(request()->input('thresome'), FILTER_VALIDATE_BOOLEAN);
+        $request->user()->thresome = $thresome;
+
+        $request->user()->save();
         return Redirect::route('profile.edit');
     }
 

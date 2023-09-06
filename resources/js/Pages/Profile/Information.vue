@@ -83,15 +83,15 @@
               <textarea rows="5" class="form-control" placeholder="Escreva uma breve descrição sobre você" v-model="form.description"></textarea>
               <p class="text-danger" v-if="form.errors.description">{{form.errors.description}}</p>
             </div>
-            <h3 class="card-title mt-4">Senha</h3>
+            <!-- <h3 class="card-title mt-4">Senha</h3>
             <p class="card-subtitle">Pode definir uma palavra-passe permanente se não pretender utilizar códigos de início de sessão temporários.</p>
             <div>
               <a href="#" class="btn">
                 Nova Senha
               </a>
-            </div>
+            </div> -->
             <h3 class="card-title mt-4">Perfíl Público</h3>
-            <p class="card-subtitle">{{visible}}Tornar o seu perfil público significa que qualquer pessoa no portal poderá encontrá-lo.</p>
+            <p class="card-subtitle">Tornar o seu perfil público significa que qualquer pessoa no portal poderá encontrá-lo.</p>
             <div class="mb-5">
               <label class="form-check form-switch form-switch-lg">
                 <input class="form-check-input" type="checkbox"  v-model="form.visible">
@@ -103,9 +103,6 @@
             <LightBox :images="user.gallery" :myProfile="true"></LightBox>
             <div class="card-footer bg-transparent mt-5">
               <div class="btn-list justify-content-end">
-                <a href="#" class="btn">
-                  Cancelar
-                </a>
                 <button type="submit" class="btn btn-primary">
                   Atulizar Informações
                 </button>

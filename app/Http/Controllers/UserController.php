@@ -43,6 +43,14 @@ class UserController extends Controller
                     $submissive = filter_var(request()->input('submissive'), FILTER_VALIDATE_BOOLEAN);
                     $query->where('submissive', 'like', "%{$submissive}%");
                 }
+                if (request()->has('domme')) {
+                    $domme = filter_var(request()->input('domme'), FILTER_VALIDATE_BOOLEAN);
+                    $query->where('domme', 'like', "%{$domme}%");
+                }
+                if (request()->has('master')) {
+                    $master = filter_var(request()->input('master'), FILTER_VALIDATE_BOOLEAN);
+                    $query->where('master', 'like', "%{$master}%");
+                }
                 if (request()->has('bondage')) {
                     $bondage = filter_var(request()->input('bondage'), FILTER_VALIDATE_BOOLEAN);
                     $query->where('bondage', 'like', "%{$bondage}%");
@@ -81,7 +89,13 @@ class UserController extends Controller
 
     public function user(Request $request)
     {
-        $user = User::where('nickname', $request->nickname)->first();
+        // $user = User::where('nickname', $request->nickname)->first();
+
+
+        $user = User::where('nickname', $request->nickname)
+            ->with('country')
+            ->first();
+
         return Inertia::render('Users/User', [
             'user' => $user
         ]);

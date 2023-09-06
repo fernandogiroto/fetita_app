@@ -1,3 +1,21 @@
+.btn:hover {
+    color: #ffffff;
+    background-color: #182433;
+    border-color: #182433;
+}
+
+
+.btn-check:checked+.btn,
+:not(.btn-check)+.btn:active,
+.btn:first-child:active,
+.btn.active,
+.btn.show {
+    color: #ffffff;
+    background-color: #182433;
+    border-color: #182433;
+}
+
+
 .page-intro {
     margin-top: -6rem;
 }
@@ -19,15 +37,24 @@ section {
 }
 
 .page-info {
-    margin-top: -339px;
+    margin-top: -340px;
 }
 
 .info-comunity-img {
-    max-height: 150px;
+    max-height: 200px;
     width: 100%;
     margin-bottom: 15px;
 }
 
+
+.submissive-info-image {
+    border-radius: 10px;
+    justify-content: center;
+    background-size: cover;
+    background-image: url('@/Assets/images/submisive_description.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
 .sugar-info-image {
     border-radius: 10px;

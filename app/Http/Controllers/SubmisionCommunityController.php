@@ -81,7 +81,7 @@ class SubmisionCommunityController extends Controller
             $user->domme = !$user->domme;
         } else if ($submsive_choice  == 'Mestre') {
             $user->master = !$user->master;
-        } else if ($submsive_choice  == 'Submisso') {
+        } else if ($submsive_choice  == 'Submisso(a)') {
             $user->submissive = !$user->submissive;
         }
 
@@ -99,6 +99,6 @@ class SubmisionCommunityController extends Controller
         $user->submissive = false;
         $user->save();
 
-        return Redirect::route('comunidades.sugar');
+        return Redirect::route('comunidades.submision');
     }
 }

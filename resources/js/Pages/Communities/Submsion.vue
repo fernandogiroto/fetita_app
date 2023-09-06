@@ -4,7 +4,7 @@
     <AppLayout>
         <template #content>
         <!-- Page header -->
-        <div class="page-contact overlay-dark d-print-none">
+        <div class="page-banner page-submision  overlay-dark d-print-none">
             <div class="container-xl">
             </div>
           </div>
@@ -34,10 +34,13 @@
                             <span class="ps-4">{{users_count}} Membros </span>
                           </div>
                         </li>
+                        <li v-if="userBelongsToComunity">
+                          Você está inscrito como: 
+                          <span class="text-danger">{{userChoice}}</span>
+                        </li>
                       </ul>
                     </div>
                     <div class="card-footer p-0">
-                      
                       <button class="btn btn-primary btn-square w-100 p-3" data-bs-toggle="modal" data-bs-target="#modal-success" v-if="!userBelongsToComunity">Me Inscrever na Comunidade</button>
                       <form @submit.prevent="unSubscribe" v-else>
                         <button class="btn btn-primary btn-square w-100 p-3">
@@ -76,8 +79,8 @@
                               <div class="btn-list">
                                 <span class="d-none d-sm-inline">
                                   <Link :href="route('usuarios', {
-                                    sugarDaddy: true,
-                                    sugarMommy: true
+                                    domme: true,
+                                    master: true
                                   })" class="btn btn-dark btn-users-cmg">
                                     Ver Todos
                                   </Link>
@@ -208,24 +211,24 @@
                 <div class="row row-cards pt-5">
                   <div class="col-lg-6 pe-5">
                     <h2>O que é a fantasia de Submisão?</h2>
-                    <p class="text-justify">Sugar Daddy é um termo utilizado para descrever um homem mais velho e financeiramente bem-sucedido que 
-                    oferece apoio financeiro e presentes luxuosos a uma pessoa mais jovem, geralmente uma mulher, em troca de
-                    companhia, relacionamento ou amizade. O conceito de "sugar daddy" está enraizado na dinâmica de 
-                    "relacionamento patrocinado", onde o homem, conhecido como o sugar daddy, desfruta da companhia e atenção 
-                    da pessoa mais jovem, conhecida como "sugar baby", que, por sua vez, recebe benefícios materiais e financeiros.
+                    <p class="text-justify">A fantasia de submissão BDSM envolve um aspecto de jogos de poder e controle 
+                      consensuais dentro do contexto de relações sexuais ou eróticas. BDSM é um acrônimo que se refere a 
+                      Bondage e Disciplina (BD), Dominação e Submissão (DS) e Sadismo e Masoquismo (SM). A fantasia de 
+                      submissão nesse contexto específico refere-se ao desejo de uma pessoa em assumir o papel de 
+                      submisso(a), voluntariamente entregando parte do controle a um parceiro dominante.
                     </p>
                     <p class="text-justify">
-                    Essa relação costuma ser consensual e estabelece uma espécie de acordo ou "arranjo" entre ambas as partes, 
-                    onde os termos e condições do relacionamento são discutidos e acordados antecipadamente. Embora haja casos
-                    em que esses arranjos evoluem para relacionamentos emocionais genuínos, muitas vezes, a principal motivação 
-                    é a troca de suporte financeiro por companhia e atenção.
+                      Nesse cenário, a pessoa que assume o papel de submisso(a) geralmente encontra prazer na sensação de 
+                      ser guiada, controlada ou até mesmo restringida pelo parceiro dominante. Isso pode envolver 
+                      elementos como amarras, jogos de restrição, uso de acessórios, ordens e comandos, além de uma dinâmica
+                      de poder que pode variar desde suave e leve até intensa e rigorosa, dependendo das preferências de
+                      ambos os parceiros.
                     </p>
                   </div>
-                  <div class="col-lg-6 sugar-info-image ps-5">
+                  <div class="col-lg-6 submissive-info-image ps-5">
                   </div>
                 </div>
               </section>  
-
               <!-- MODAL -->
               <div class="modal modal-blur fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
@@ -235,7 +238,7 @@
                     <form @submit.prevent="subscribe">
                       <div class="modal-body text-center py-4">
                         <h3>Entrar na comunidade como</h3>
-                          <select class="form-select" v-model="userSugarPreference">
+                          <select class="form-select" v-model="userSubmissivePreference">
                             <option>Domme</option>
                             <option>Mestre</option>
                             <option>Submisso(a)</option>
@@ -256,7 +259,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </template>
@@ -266,6 +268,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, useForm, Link, usePage } from '@inertiajs/vue3';
+import { onMounted } from 'vue';
 import {ref} from 'vue';
 
 
@@ -279,19 +282,22 @@ const props = defineProps({
   userBelongsToComunity: Boolean
 });
 
-const userSugarPreference = ref('');
+const userSubmissivePreference = ref(null);
 const userBelongsToComunity = ref(props.userBelongsToComunity);
+const userChoice = ref(null);
 const user = usePage().props.auth.user;
 const form = useForm({
   submsive_selected: null,
 });
 
 const subscribe = () => {
-  form.submsive_selected = userSugarPreference.value
+  form.submsive_selected = userSubmissivePreference.value
     form.put(route('comunidades.submision.subscribre'), {
         preserveScroll: true,
         onSuccess: (response) => {
           userBelongsToComunity.value = true;
+          userChoice.value = userSubmissivePreference.value;
+          userSubmissivePreference.value = null;
           console.log(response)
         }
     });
@@ -303,7 +309,21 @@ const unSubscribe = () => {
         preserveScroll: true,
         onSuccess: (response) => {
           userBelongsToComunity.value = false;
+          userChoice.value = null;
+          console.log(response)
         }
     });
 };
+
+onMounted(() => {
+  if (user.master){
+    userChoice.value = "Mestre"
+  }
+  if (user.domme){
+    userChoice.value = "Domme"
+  }
+  if (user.submissive){
+    userChoice.value = "Submisso"
+  }
+})
 </script>

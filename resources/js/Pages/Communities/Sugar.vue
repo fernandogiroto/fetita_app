@@ -3,8 +3,8 @@
     <Head title="Sugar"/>
     <AppLayout>
         <template #content>
-        <!-- Page header -->
-        <div class="page-contact overlay-dark d-print-none">
+          <!-- Page header -->
+          <div class="page-banner page-sugar overlay-dark d-print-none">
             <div class="container-xl">
             </div>
           </div>
@@ -33,6 +33,10 @@
                             <span class="avatar avatar-sm rounded" style="background-image: url(https://i.pravatar.cc/306)"></span>
                             <span class="ps-4">{{users_count}} Membros </span>
                           </div>
+                        </li>
+                        <li v-if="userBelongsToComunity">
+                          Você está inscrito como: 
+                          <span class="text-danger">{{userChoice}}</span>
                         </li>
                       </ul>
                     </div>
@@ -148,8 +152,6 @@
               </section>  
             </div>
           </div>
-          
-          
           <!-- MODAL -->
           <div class="modal modal-blur fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
@@ -160,7 +162,7 @@
                   <div class="modal-body text-center py-4">
                     <h3>Entrar na comunidade como</h3>
                       <select class="form-select" v-model="userSugarPreference">
-                        <option v-if="user.gender == 'M'">{{ user }} </option>
+                        <option >Sugar Daddy </option>
                         <option>Sugar Mommy</option>
                         <option>Sugar Baby</option>
                       </select>
@@ -187,6 +189,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, useForm, Link, usePage } from '@inertiajs/vue3';
+import { onMounted } from 'vue';
 import {ref} from 'vue';
 
 const props = defineProps({
@@ -197,33 +200,48 @@ const props = defineProps({
   userBelongsToComunity: Boolean
 });
 
-const userSugarPreference = ref('');
+const userSugarPreference = ref(null);
 const userBelongsToComunity = ref(props.userBelongsToComunity);
+const userChoice = ref(null);
 const user = usePage().props.auth.user;
 const form = useForm({
-    submsive_selected: null,
+  sugar_selected: null,
 });
 
 const subscribe = () => {
-  form.submsive_selected = userSugarPreference.value
+  form.sugar_selected = userSugarPreference.value
     form.put(route('comunidades.sugar.subscribre'), {
         preserveScroll: true,
         onSuccess: (response) => {
           userBelongsToComunity.value = true;
+          userChoice.value = userSugarPreference.value;
+          userSugarPreference.value = null;
+          console.log(response)
         }
     });
 };
 
 const unSubscribe = () => {
-  form.submsive_selected = null
+  form.sugar_selected = null
     form.put(route('comunidades.sugar.unsubscribre'), {
         preserveScroll: true,
         onSuccess: (response) => {
           userBelongsToComunity.value = false;
+          userChoice.value = null;
         }
     });
 };
 
-
+onMounted(() => {
+  if (user.sugar_daddy){
+    userChoice.value = "Sugar Daddy"
+  }
+  if (user.sugar_mommy){
+    userChoice.value = "Sugar Mommy"
+  }
+  if (user.sugar_baby){
+    userChoice.value = "Sugar Baby"
+  }
+});
 
 </script>
