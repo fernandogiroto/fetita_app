@@ -116,7 +116,7 @@ class ProfileController extends Controller
     public function updateAvatar(Request $request): RedirectResponse
     {
         $request->validate([
-            'avatar' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'avatar' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         $image_path = '';
@@ -127,7 +127,7 @@ class ProfileController extends Controller
             foreach ($actualAvatar as $avatar) {
                 Storage::delete($avatar);
             }
-            $image_path = $request->file('avatar')->store('images/user/' . $user_folder, 'public');
+            $image_path = $request->file('avatar')->store('images/user/' . $user_folder, 'public', 'avatar');
         }
 
         $request->user()->avatar = '/storage/' . $image_path;

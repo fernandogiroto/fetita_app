@@ -30,10 +30,10 @@ use Inertia\Inertia;
 
 Route::get('/', fn () => Inertia::render('Website'))->name('website');
 
-Route::get('/chat/rooms', [App\Http\Controllers\ChatController::class, 'rooms']);
-Route::get('/chat/room/{roomId}/messages', [App\Http\Controllers\ChatController::class, 'messages']);
-Route::post('/chat/room/{roomId}/message', [App\Http\Controllers\ChatController::class, 'newMessage']);
-Route::get('/chat', fn () => Inertia::render('Chat/Container'))->name('chat');
+// Route::get('/chat/rooms', [App\Http\Controllers\ChatController::class, 'rooms']);
+// Route::get('/chat/room/{roomId}/messages', [App\Http\Controllers\ChatController::class, 'messages']);
+// Route::post('/chat/room/{roomId}/message', [App\Http\Controllers\ChatController::class, 'newMessage']);
+// Route::get('/chat', fn () => Inertia::render('Chat/Container'))->name('chat');
 
 
 Route::middleware('auth')->group(function () {

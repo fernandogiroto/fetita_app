@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \Chatify\ChatifyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -184,6 +185,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Chatify' => Chatify\Facades\ChatifyMessenger::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

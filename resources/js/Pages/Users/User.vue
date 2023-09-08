@@ -33,7 +33,7 @@
                       </div>
                       <div class="mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path></svg>
-                        Localização: <strong><span v-bind:class="['flag','flag-country-' + user.country.iso.toLowerCase()]"></span> {{user.country.name}}</strong>
+                        Localização: <strong><span v-bind:class="['flag','flag-country-' + user.country?.iso.toLowerCase()]"></span> {{user.country?.name}}</strong>
                       </div>
                       <div class="mb-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 text-muted" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path></svg>
@@ -87,9 +87,22 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import LightBox from '@/Components/LightBox.vue'
 import { Head,Link } from '@inertiajs/vue3';
 import {ref} from 'vue';
+import { onMounted } from 'vue';
 
 const props = defineProps(['user']);
-const profilePhotoDefault = `https://i.pravatar.cc/150?img=${props.user.id}`;
+const profilePhotoDefault = `https://i.pravatar.cc/150?img=10`;
 const avatar = ref(props.user.avatar ?? profilePhotoDefault);
+
+const getAvatar = function(){
+  if(props.user.avatar){  
+    avatar.value = `http://127.0.0.1:8000/storage${props.user.avatar}`;
+  }else{
+    avatar = profilePhotoDefault;
+  }
+}
+
+onMounted(() => {
+  getAvatar();
+})
 
 </script>

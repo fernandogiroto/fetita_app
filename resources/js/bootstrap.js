@@ -27,10 +27,15 @@ window.Echo = new Echo({
     wsHost: import.meta.env.VITE_PUSHER_HOST ? import.meta.env.VITE_PUSHER_HOST : `ws-${import.meta.env.VITE_PUSHER_APP_CLUSTER}.pusher.com`,
     wsPort: import.meta.env.VITE_PUSHER_PORT ?? 80,
     wssPort: import.meta.env.VITE_PUSHER_PORT ?? 443,
-    forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
+    forceTLS: true,
     enabledTransports: ['ws', 'wss'],
 });
 
+
+// var channel = Echo.channel('my-channel');
+// channel.listen('.my-event', function (data) {
+//     alert(JSON.stringify(data));
+// });
 
 // import Echo from 'laravel-echo';
 // import Pusher from 'pusher-js';
