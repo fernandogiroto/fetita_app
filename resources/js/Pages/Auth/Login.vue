@@ -5,11 +5,11 @@
       <div class="page page-center">
         <div class="container container-tight py-4">
           <div class="text-center mb-4">
-            <a href="." class="navbar-brand navbar-brand-autodark">DUAL STEPS</a> 
+            <a href="." class="navbar-brand navbar-brand-autodark">FETITA</a> 
           </div>
           <div class="card card-md">
             <div class="card-body">
-              <h2 class="h2 text-center mb-4">Acessar Processo</h2>
+              <h2 class="h2 text-center mb-4">Login</h2>
               <form @submit.prevent="submit">
                 <div class="mb-3">
                   <div class="mt-4">
@@ -28,13 +28,13 @@
                 <div class="mb-2">
                   <label class="form-check">
                     <Checkbox name="remember" class="form-check-input" v-model:checked="form.remember"/>
-                    <span class="form-check-label">Remember me on this device</span>
+                    <span class="form-check-label">Relembrar dispositivo</span>
                   </label>
                 </div>
 
                 <div class="form-footer">
                   <PrimaryButton class="btn btn-primary w-100" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Acessar Meu Processo
+                    Entrar
                   </PrimaryButton>
                 </div>
 
@@ -53,7 +53,7 @@
             
           </div>
           <div class="text-center text-muted mt-3">
-            Não tem processo ativo? <Link :href="route('register')">Criar Processo</Link>
+            Ainda Não tem conta? <Link :href="route('register')">Criar Conta</Link>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ return [
     | Messenger display name
     |-------------------------------------
     */
-    'name' => env('CHATIFY_NAME', 'Fetita - Mensagens'),
+    'name' => env('CHATIFY_NAME', ''),
 
     /*
     |-------------------------------------
@@ -58,7 +58,7 @@ return [
     |-------------------------------------
     */
     'user_avatar' => [
-        'folder' => '',
+        'folder' => 'users-avatar',
         'default' => 'avatar.png',
     ],
 

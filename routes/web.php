@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
 
     // USUARIOS
     Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios');
-    Route::get('/usuarios/{nickname}', [UserController::class, 'user'])->name('user.profile');
+    Route::get('/usuario/{nickname}', [UserController::class, 'user'])->name('user.profile');
 
     // PROFILE
     Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');

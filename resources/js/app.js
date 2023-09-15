@@ -6,12 +6,12 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-import "../css/tabler.css";
 
-import "../css/demo.css";
-import "../css/reset.css"
-import "../css/flags.css"
-import "../css/vendor.css";
+import "../../public/css/tabler.css";
+import "../../public/css/demo.css";
+import "../../public/css/reset.css"
+import "../../public/css/flags.css"
+import "../../public/css/vendor.css";
 
 import FlagIcon from 'vue-flag-icon'
 import VueTablerIcons from "vue-tabler-icons";

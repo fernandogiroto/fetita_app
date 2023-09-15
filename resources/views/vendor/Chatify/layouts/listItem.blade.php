@@ -12,7 +12,6 @@
             <td>
                 <p data-id="{{ Auth::user()->id }}" data-type="user">Saved Messages <span>You</span></p>
                 <span>Save messages secretly</span>
-                <p>{{ Auth::user()->id }}</p>
             </td>
         </tr>
     </table>
@@ -31,13 +30,9 @@ $lastMessageBody = strlen($lastMessageBody) > 30 ? mb_substr($lastMessageBody, 0
             @if($user->active_status)
                 <span class="activeStatus"></span>
             @endif
-<div class="avatar av-m"
-    style="background-image: url('{{ $user->avatar }}');">
-</div>
-
-        {{-- storage/images/user/66/avatar/avatar.png
-
-        asset('storage/images/'.$article->image)' --}}
+        <div class="avatar av-m"
+        style="background-image: url('{{ $user->avatar }}');">
+        </div>
         </td>
         {{-- center side --}}
         <td>

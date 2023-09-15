@@ -26,7 +26,6 @@
           <div class="dropdown-menu">
             <div class="dropdown-menu-columns">
               <div class="dropdown-menu-column">
-                
                 <Link class="dropdown-item" :href="route('comunidades.sugar')">Sugar</Link>
                 <Link class="dropdown-item" :href="route('comunidades.bondage')">Bondage</Link>
                 <Link class="dropdown-item" :href="route('comunidades.cuckold')">Cuckold</Link>
@@ -38,14 +37,14 @@
           </div>
         </li>
         <li class="nav-item" :class="{ 'active': $page.url === '/noticias' }">
-          <Link :href="route('chat')" class="nav-link">
+          <a href="/chat" class="nav-link">
             <span class="nav-link-icon d-md-none d-lg-inline-block">
               <confetti-icon size="20"/>
             </span>
             <span class="nav-link-title">
               Mensagens
             </span>
-          </Link>
+          </a>
         </li>
       </ul>
       <div class="navbar-nav flex-row order-md-last">

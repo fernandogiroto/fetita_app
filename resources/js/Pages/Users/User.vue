@@ -44,13 +44,13 @@
                       </div>
                     </div>
                     <div class="card-footer">
-                      <button class="btn btn-primary btn-square w-100 p-3">
-                        Enivar Mensagem
-                      </button> 
+                      <Link :href="user_chat_url" class="btn btn-primary btn-square w-100 p-3">Enviar Mensagem</Link>
+                      <a :href="user_chat_url" class="btn btn-primary btn-square w-100 p-3">Enviar Mensagem</a>
                     </div>
                   </div>
                   <div class="card mt-3">
                     <div class="card-body">
+                     
                       <h4>Comunidades</h4>
                       <ul class="list-unstyled">
                         <Link :href="route('comunidades.sugar')" ><li v-if="user.sugar_daddy" class="text-dark"><users-icon size="20"/> Sugar</li></Link>
@@ -92,6 +92,8 @@ import { onMounted } from 'vue';
 const props = defineProps(['user']);
 const profilePhotoDefault = `https://i.pravatar.cc/150?img=10`;
 const avatar = ref(props.user.avatar ?? profilePhotoDefault);
+const user_chat_url = ref(`http://127.0.0.1:8000/chat/${props.user.id}`)
+
 
 const getAvatar = function(){
   if(props.user.avatar){  
