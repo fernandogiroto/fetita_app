@@ -183,3 +183,12 @@ a.nav-link.nav-link-users {
 .logo {
     width: 100px;
 }
+
+
+.background-login {
+    justify-content: center;
+    background-size: cover;
+    background-image: url('@/Assets/images/page_header.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}

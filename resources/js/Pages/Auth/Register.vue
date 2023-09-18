@@ -1,57 +1,84 @@
 <template>
-  <GuestLayout>
-    <Head title="Register" />
-
-    <div class="flex flex-col overflow-y-auto md:flex-row">
-      <div class="h-32 md:h-auto md:w-1/2">
-        <img aria-hidden="true" class="object-cover w-full h-full" src="/images/create-account-office.jpeg" alt="Office" />
-      </div>
-
-      <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-        <div class="w-full">
-          <h1 class="mb-4 text-xl font-semibold text-gray-700">
-            Create account
-          </h1>
-
-          <form @submit.prevent="submit">
-            <div>
-              <InputLabel for="name" value="Name" />
-              <TextInput id="name" type="text" class="block w-full mt-1" v-model="form.name" required autofocus autocomplete="name" />
-              <InputError class="mt-2" :message="form.errors.name" />
-            </div>
-
-            <div class="mt-4">
-              <InputLabel for="email" value="Email" />
-              <TextInput id="email" type="email" class="block w-full mt-1" v-model="form.email" required autocomplete="username" />
-              <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-              <InputLabel for="password" value="Password" />
-              <TextInput id="password" type="password" class="block w-full mt-1" v-model="form.password" required autocomplete="new-password" />
-              <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <!-- <div class="mt-4">
-              <InputLabel for="password_confirmation" value="Confirm Password" />
-              <TextInput id="password_confirmation" type="password" class="block w-full mt-1" v-model="form.password_confirmation" required autocomplete="new-password" />
-              <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div> -->
-
-            <div class="flex items-center justify-end mt-4">
-              <Link :href="route('login')" class="text-sm text-gray-600 underline  hover:text-gray-900">
-                Already registered?
-              </Link>
-
-              <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Register
-              </PrimaryButton>
-            </div>
-          </form>
+  <Head title="Registrar"/>
+  <div class="row g-0 flex-fill">
+    <div class="col-12 col-lg-6 col-xl-4 border-top-wide border-danger d-flex flex-column justify-content-center">
+      <div class="container container-tight my-1 px-lg-5">
+        <div class="text-center mb-4">
+          <a href="." class="navbar-brand navbar-brand-autodark"></a>
         </div>
+        <h2 class="h3 text-center mb-3">
+          Registrar
+        </h2>
+        <form @submit.prevent="submit">
+          <div>
+            <!-- <InputLabel for="name" value="Nome" /> -->
+            <TextInput id="name" type="text" class="form-control" v-model="form.name" required autofocus autocomplete="name" placeholder="Nome" />
+            <InputError class="mt-2" :message="form.errors.name" />
+          </div>
+
+          <div class="mt-3">
+            <TextInput id="name" type="text" class="form-control" v-model="form.surname" required autofocus autocomplete="surname" placeholder="Sobrenome" />
+            <InputError class="mt-2" :message="form.errors.surname" />
+          </div>
+
+          <div class="mt-3">
+            <select class="form-select" v-model="form.gender">
+              <option>Gênero</option>
+              <option>Homem</option>
+              <option>Mulher</option>
+              <option>Homem Transgênero</option>
+              <option>Mulher Transgênero</option>
+              <option>Não-Binário</option>
+            </select>
+            <InputError class="mt-2" :message="form.errors.gender" />
+          </div>
+          <div class="mt-3">
+            <select class="form-select" v-model="form.country_id">
+              <option>Selecione o país</option>
+              <option value="1">Brasil</option>
+              <option value="2">Portugal</option>
+              <option value="3">Espanha</option>
+            </select>
+            <InputError class="mt-2" :message="form.errors.country_id" />
+          </div>
+          <div class="mt-3">
+            <div class="input-icon mb-2">
+              <input class="form-control " placeholder="Data de Nascimento" id="datepicker-icon" data-mask="00/00/0000" v-model="form.birthdate" type="date">
+            </div>
+            <InputError class="mt-2" :message="form.errors.birthdate" />
+          </div>
+          <div class="mt-3">
+            <TextInput id="email" type="email" class="form-control" v-model="form.email" required autocomplete="email" placeholder="Email"/>
+            <InputError class="mt-2" :message="form.errors.email" />
+          </div>
+
+          <div class="mt-3">
+            <TextInput id="password" type="password" class="form-control" v-model="form.password" required autocomplete="new-password" placeholder="Senha"/>
+            <InputError class="mt-2" :message="form.errors.password" />
+          </div>
+
+          <!-- <div class="mt-4">
+            <InputLabel for="password_confirmation" value="Confirm Password" />
+            <TextInput id="password_confirmation" type="password" class="block w-full mt-1" v-model="form.password_confirmation" required autocomplete="new-password" />
+            <InputError class="mt-2" :message="form.errors.password_confirmation" />
+          </div> -->
+
+          <div class="flex items-center justify-end mt-4">
+              <PrimaryButton class="btn btn-primary w-100" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+              Fazer Registro
+            </PrimaryButton>
+          </div>
+        </form>
+        <Link :href="route('login')" class="text-sm text-gray-600 underline  hover:text-gray-900 pt-5">
+         Já tem registro?
+        </Link>
       </div>
     </div>
-  </GuestLayout>
+    <div class="col-12 col-lg-6 col-xl-8 d-none d-lg-block">
+      <!-- Photo -->
+      <div class="bg-cover h-100 min-vh-100 background-login"></div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -64,6 +91,10 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
   name: '',
+  surname: '',
+  gender:'',
+  country_id: null,
+  birthdate: null,
   email: '',
   password: '',
   password_confirmation: '',

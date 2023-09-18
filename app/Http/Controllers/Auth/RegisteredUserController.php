@@ -15,6 +15,7 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Carbon\Carbon;
 use Nette\Utils\Random;
+use Illuminate\Support\Str;
 
 class RegisteredUserController extends Controller
 {
@@ -33,21 +34,32 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $dt = Carbon::now();
+        $before = $dt->subYears(18)->format('Y-m-d');
+
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:50',
+            'surname' => 'required|string|max:50',
+            'country_id' => 'required',
+            'gender' => 'required',
             'email' => 'required|string|email|max:255|unique:' . User::class,
             'password' => ['required', Rules\Password::defaults()],
+            'birthdate' => 'required|date|before:' . $before
         ]);
+
+
+        $nickname = $request->name . '_' . $request->surname . '_' . Str::random(6);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'surname' => 'Fetish',
-            'nickname' => '111122222333344555555',
-            'country_id' => 1,
+            'surname' => $request->surname,
+            'nickname' => $nickname,
+            'country_id' => $request->country_id,
+            'birthdate' => $request->birthdate,
             'password' => Hash::make($request->password),
             'last_activity' => Carbon::now(),
-            'sugar_daddy' => true
+            'gender' => $request->gender,
         ]);
 
         event(new Registered($user));
