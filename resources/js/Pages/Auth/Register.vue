@@ -11,50 +11,51 @@
         </h2>
         <form @submit.prevent="submit">
           <div>
-            <!-- <InputLabel for="name" value="Nome" /> -->
-            <TextInput id="name" type="text" class="form-control" v-model="form.name" required autofocus autocomplete="name" placeholder="Nome" />
-            <InputError class="mt-2" :message="form.errors.name" />
+            <TextInput id="name" type="text" class="form-control" v-model="form.name" required  autocomplete="name" placeholder="Nome" />
+            <InputError class="mt-2 text-danger" :message="form.errors.name" />
           </div>
 
-          <div class="mt-3">
-            <TextInput id="name" type="text" class="form-control" v-model="form.surname" required autofocus autocomplete="surname" placeholder="Sobrenome" />
-            <InputError class="mt-2" :message="form.errors.surname" />
+          <div class="mt-2">
+            <TextInput id="surname" type="text" class="form-control" v-model="form.surname" required autocomplete="surname" placeholder="Sobrenome" />
+            <InputError class="mt-2 text-danger" :message="form.errors.surname" />
           </div>
 
+          <div class="mt-2">
+            <TextInput id="email" type="email" class="form-control" v-model="form.email" required autocomplete="email" placeholder="Email"/>
+            <InputError class="mt-2 text-danger" :message="form.errors.email" />
+          </div>
+
+          <div class="mt-2">
+            <TextInput id="password" type="password" class="form-control" v-model="form.password" required autocomplete="new-password" placeholder="Senha"/>
+            <InputError class="mt-2 text-danger" :message="form.errors.password" />
+          </div>
+          
           <div class="mt-3">
+            <InputLabel value="Nascimento" />
+            <div class="input-icon mb-2">
+              <input class="form-control " placeholder="Data de Nascimento" id="datepicker-icon" data-mask="00/00/0000" v-model="form.birthdate" type="date">
+            </div>
+            <InputError class="mt-2 text-danger" :message="form.errors.birthdate" />
+          </div>
+          <div class="mt-2">
+            <InputLabel for="name" value="Selecione o país" />
+            <select class="form-select" v-model="form.country_id">
+              <option value="1">Brasil</option>
+              <option value="2">Portugal</option>
+              <option value="3">Espanha</option>
+            </select>
+            <InputError class="mt-2 text-danger" :message="form.errors.country_id" />
+          </div>
+          <div class="mt-2">
+            <InputLabel for="name" value="Selecione o gênero" />
             <select class="form-select" v-model="form.gender">
-              <option>Gênero</option>
               <option>Homem</option>
               <option>Mulher</option>
               <option>Homem Transgênero</option>
               <option>Mulher Transgênero</option>
               <option>Não-Binário</option>
             </select>
-            <InputError class="mt-2" :message="form.errors.gender" />
-          </div>
-          <div class="mt-3">
-            <select class="form-select" v-model="form.country_id">
-              <option>Selecione o país</option>
-              <option value="1">Brasil</option>
-              <option value="2">Portugal</option>
-              <option value="3">Espanha</option>
-            </select>
-            <InputError class="mt-2" :message="form.errors.country_id" />
-          </div>
-          <div class="mt-3">
-            <div class="input-icon mb-2">
-              <input class="form-control " placeholder="Data de Nascimento" id="datepicker-icon" data-mask="00/00/0000" v-model="form.birthdate" type="date">
-            </div>
-            <InputError class="mt-2" :message="form.errors.birthdate" />
-          </div>
-          <div class="mt-3">
-            <TextInput id="email" type="email" class="form-control" v-model="form.email" required autocomplete="email" placeholder="Email"/>
-            <InputError class="mt-2" :message="form.errors.email" />
-          </div>
-
-          <div class="mt-3">
-            <TextInput id="password" type="password" class="form-control" v-model="form.password" required autocomplete="new-password" placeholder="Senha"/>
-            <InputError class="mt-2" :message="form.errors.password" />
+            <InputError class="mt-2 text-danger" :message="form.errors.gender" />
           </div>
 
           <!-- <div class="mt-4">
@@ -69,13 +70,14 @@
             </PrimaryButton>
           </div>
         </form>
-        <Link :href="route('login')" class="text-sm text-gray-600 underline  hover:text-gray-900 pt-5">
-         Já tem registro?
-        </Link>
+
+
+        <div class="text-center text-muted mt-3">
+          <Link :href="route('login')">Já tem registro?</Link>
+        </div>
       </div>
     </div>
     <div class="col-12 col-lg-6 col-xl-8 d-none d-lg-block">
-      <!-- Photo -->
       <div class="bg-cover h-100 min-vh-100 background-login"></div>
     </div>
   </div>
@@ -93,7 +95,7 @@ const form = useForm({
   name: '',
   surname: '',
   gender:'',
-  country_id: null,
+  country_id: '',
   birthdate: null,
   email: '',
   password: '',

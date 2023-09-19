@@ -192,3 +192,33 @@ a.nav-link.nav-link-users {
     background-repeat: no-repeat;
     background-position: center center;
 }
+
+.image-background {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.sugar-card-background {
+    background-image: url('@/Assets/images/sugar.png');
+}
+
+.submision-card-background {
+    background-image: url('@/Assets/images/submision.png');
+}
+
+.bondage-card-background {
+    background-image: url('@/Assets/images/bondage.jpeg');
+}
+
+.cuckold-card-background {
+    background-image: url('@/Assets/images/cuckold.png');
+}
+
+.podolatry-card-background {
+    background-image: url('@/Assets/images/footfetish.jpeg');
+}
+
+.thresome-card-background {
+    background-image: url('@/Assets/images/thresome.jpeg');
+}

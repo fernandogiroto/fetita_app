@@ -44,7 +44,6 @@
                       </div>
                     </div>
                     <div class="card-footer">
-                      <Link :href="user_chat_url" class="btn btn-primary btn-square w-100 p-3">Enviar Mensagem</Link>
                       <a :href="user_chat_url" class="btn btn-primary btn-square w-100 p-3">Enviar Mensagem</a>
                     </div>
                   </div>

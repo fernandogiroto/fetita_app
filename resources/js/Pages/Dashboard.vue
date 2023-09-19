@@ -1,5 +1,5 @@
 <template>
-  <Head title="Dashboard"/>
+  <Head title="Fetita"/>
   <AppLayout>
     <template #content>
         <div class="page">
@@ -28,7 +28,7 @@
             <div class="page-body">
               <div class="container-xl">
 
-                <!-- Citzen Guide -->
+                <!-- Communities Guide -->
                 <section>
                   <div class="row row-deck row-cards">
                     <div class="col-12">

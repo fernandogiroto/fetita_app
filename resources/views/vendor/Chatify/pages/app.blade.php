@@ -4,7 +4,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a href="/dashboard">
+    <a href="/app">
       <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">FETITA</h1>
     </a>
     <ul class="navbar-nav">
@@ -101,14 +101,14 @@
                {!! view('Chatify::layouts.listItem', ['get' => 'saved']) !!} --}}
                {{-- Contact --}}
                <p class="messenger-title"><span>Mensagens</span></p>
-               <div class="listOfContacts" style="width: 100%;height: calc(100% - 272px);position: relative;"></div>
+               <div class="listOfContacts" style="width: 100%;height: calc(100% - 500px);position: relative;"></div>
            </div>
              {{-- ---------------- [ Search Tab ] ---------------- --}}
            <div class="messenger-tab search-tab app-scroll" data-view="search">
                 {{-- items --}}
                 <p class="messenger-title"><span>Search</span></p>
                 <div class="search-records">
-                    <p class="message-hint center-el"><span>Type to search..</span></p>
+                    <p class="message-hint center-el"><span>Digite para pesquisar..</span></p>
                 </div>
              </div>
         </div>

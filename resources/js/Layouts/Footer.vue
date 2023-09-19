@@ -4,17 +4,21 @@
           <div class="row text-center align-items-center flex-row-reverse">
             <div class="col-lg-auto ms-lg-auto">
               <ul class="list-inline list-inline-dots mb-0">
-                <li class="list-inline-item"><a href="https://tabler.io/docs" target="_blank" class="link-secondary" rel="noopener">Política de Privacidade</a></li>
-                <li class="list-inline-item"><a href="./license.html" class="link-secondary">Cookies</a></li>
-                <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Termos de Uso</a></li>
+                <li class="list-inline-item">
+                  <Link :href="route('terms_conditions')" class="text-decoration-none text-dark">Termos de Uso</Link>
+                </li>
+                <li class="list-inline-item">
+                  <Link :href="route('contact')" class="text-decoration-none text-dark">Contato</Link>
+                </li>
+                <li class="list-inline-item">
+                  <Link :href="route('privacy_policy')" class="text-decoration-none text-dark">Política de Privacidade</Link>
+                </li>
               </ul>
             </div>
             <div class="col-12 col-lg-auto mt-3 mt-lg-0">
               <ul class="list-inline list-inline-dots mb-0">
                 <li class="list-inline-item">
-                  Copyright &copy; 2023
-                  <a href="." class="link-secondary">Fetita</a>.
-                  Todos os direitos reservados
+                  Fetita - Portal do Fetish &copy; 2023 - Todos os direitos reservados
                 </li>
               </ul>
             </div>
@@ -22,3 +26,7 @@
         </div>
     </footer>
 </template>
+
+<script setup>
+import { Link } from '@inertiajs/vue3';
+</script>

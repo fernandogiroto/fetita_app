@@ -28,18 +28,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', fn () => Inertia::render('Website'))->name('website');
-
-// Route::get('/chat/rooms', [App\Http\Controllers\ChatController::class, 'rooms']);
-// Route::get('/chat/room/{roomId}/messages', [App\Http\Controllers\ChatController::class, 'messages']);
-// Route::post('/chat/room/{roomId}/message', [App\Http\Controllers\ChatController::class, 'newMessage']);
-// Route::get('/chat', fn () => Inertia::render('Chat/Container'))->name('chat');
-
-
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['verified'])->name('dashboard');
+    Route::get('/app', [DashboardController::class, 'index'])->middleware(['verified'])->name('dashboard');
     Route::get('/noticias', fn () => Inertia::render('News'))->name('news');
-    Route::get('/contato', fn () => Inertia::render('Contact'))->name('contato');
+    Route::get('/contato', fn () => Inertia::render('Contact'))->name('contact');
+    Route::get('/politica_de_privacidade', fn () => Inertia::render('Privacy_Policy'))->name('privacy_policy');
+    Route::get('/termos_condicoes', fn () => Inertia::render('Terms_Conditions'))->name('terms_conditions');
+
+
 
     // USUARIOS
     Route::get('/usuarios', [UserController::class, 'index'])->name('usuarios');

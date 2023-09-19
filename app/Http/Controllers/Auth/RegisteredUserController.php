@@ -19,6 +19,12 @@ use Illuminate\Support\Str;
 
 class RegisteredUserController extends Controller
 {
+
+    public function index()
+    {
+        return Inertia::render('Website');
+    }
+
     /**
      * Display the registration view.
      */
@@ -37,18 +43,32 @@ class RegisteredUserController extends Controller
         $dt = Carbon::now();
         $before = $dt->subYears(18)->format('Y-m-d');
 
+        $messages = [
+            'name.required' => 'O nome é obrigatório',
+            'name.surname' => 'O sobrenome é obrigatório',
+            'country_id.required' => 'O país é obrigatório',
+            'birthdate.required' => 'O nascimento é obrigatório',
+            'gender.required' => 'O gênero é obrigatório',
+            'name.min' => 'O nome precisa ter no mínimo 3 letras.',
+            'surname.min' => 'O sobrenome precisa ter no mínimo 3 letras.',
+            'email'    => 'The :attribute must be a valid email address.',
+            'birthdate.before' => 'É preciso ter mais de 18 anos para entrar.'
+        ];
+
         $request->validate([
-            'name' => 'required|string|max:50',
+            'name' => 'required|string|min:3|max:50',
             'surname' => 'required|string|max:50',
             'country_id' => 'required',
             'gender' => 'required',
             'email' => 'required|string|email|max:255|unique:' . User::class,
             'password' => ['required', Rules\Password::defaults()],
             'birthdate' => 'required|date|before:' . $before
-        ]);
+        ], $messages);
 
 
         $nickname = $request->name . '_' . $request->surname . '_' . Str::random(6);
+
+
 
         $user = User::create([
             'name' => $request->name,

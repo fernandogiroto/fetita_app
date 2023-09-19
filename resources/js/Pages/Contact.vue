@@ -4,11 +4,11 @@
     <AppLayout>
         <template #content>
         <!-- Page header -->
-        <div class="page-header overlay-dark d-print-none">
+        <div class="page-header overlay-dark d-print-none bg-dark">
             <div class="container-xl">
               <div class="row g-2 align-items-center overlay-content">
                 <div class="col">
-                  <div class="page-pretitle text-white"> Dupla Cidadania </div>
+                  <div class="page-pretitle text-white"> Como podemos ajudar?</div>
                   <h2 class="page-title-md text-white">
                     Contato
                   </h2>
