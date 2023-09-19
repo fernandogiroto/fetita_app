@@ -71,6 +71,10 @@ class UserController extends Controller
                     $active = filter_var(request()->input('active'), FILTER_VALIDATE_BOOLEAN);
                     $query->where('active', 'like', "%{$active}%");
                 }
+                if (request()->has('gender')) {
+                    $gender = request()->input('gender');
+                    $query->where('gender', 'like', "%{$gender}%");
+                }
             })
             ->where('id', '!=', $user->id)
             ->orderBy('last_activity', 'asc')

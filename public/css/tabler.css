@@ -5655,6 +5655,8 @@ fieldset:disabled .btn {
 .card-img-top {
   border-top-left-radius: var(--tblr-card-inner-border-radius);
   border-top-right-radius: var(--tblr-card-inner-border-radius);
+  height: 190px;
+  image-rendering: pixelated;
 }
 
 .card-img,

@@ -10,8 +10,8 @@ import "bootstrap/dist/js/bootstrap.js";
 import "../../public/css/tabler.css";
 import "../../public/css/demo.css";
 import "../../public/css/reset.css"
-import "../../public/css/flags.css"
 import "../../public/css/vendor.css";
+import "../css/flags.css"
 
 import FlagIcon from 'vue-flag-icon'
 import VueTablerIcons from "vue-tabler-icons";

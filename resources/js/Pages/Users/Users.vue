@@ -1,6 +1,6 @@
 
 <template>
-  <Head title="Users"/>
+  <Head title="Usuários"/>
   <AppLayout>
       <template #content>
       <!-- Page header -->
@@ -26,7 +26,7 @@
 
                     <form class="sticky-top">
                       <div class="form-label">Usuário</div>
-                      <input type="text" class="form-control mb-4" name="example-text-input" placeholder="Pesquise pelo nome"  v-model="search">       
+                      <input type="text" class="form-control mb-4" name="example-text-input" placeholder="Pesquisar pelo nome"  v-model="search">       
                       <div class="form-label">Comunidades</div>
                       <div class="mb-4">
                         <label class="form-check">
@@ -70,22 +70,32 @@
                           <span class="form-check-label">Thresome</span>
                         </label>
                       </div>
-                      <div class="form-label">Usuários </div>
-                      <div class="mb-4">
+                      <div class="mb-3">
                         <label class="form-check form-switch">
                           <input class="form-check-input" type="checkbox" v-model="active">
                           <span class="form-check-label form-check-label-on">Apenas Online</span>
                           <span class="form-check-label form-check-label-off">Apenas Online</span>
                         </label>
                       </div>
+                      <div class="form-label">Gênero</div>
+                      <div class="mb-2">
+                        <select class="form-select" v-model="gender">
+                          <option value="no_gender" selected>Gênero</option>
+                          <option>Homem</option>
+                          <option>Mulher</option>
+                          <option>Homem Transgênero</option>
+                          <option>Mulher Transgênero</option>
+                          <option>Não Binário</option>
+                        </select>
+                      </div>
                       <div class="form-label">Localização</div>
-                      <div class="mb-4">
+                      <div class="mb-2">
                         <select class="form-select" v-model="country">
                           <option value="no_location" selected>Localização</option>
                           <option v-for="country in countries_id" :key="country">{{country.name}}</option>
                         </select>
                       </div>
-                      <div class="mt-5">
+                      <div class="mt-3">
                         <a class="btn btn-primary w-100" @click="reset">
                           Limpar Filtros
                         </a>
@@ -98,7 +108,7 @@
                       <div class="col-sm-6 col-lg-3" v-for="user in users.data">
                       <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
                         <div class="card card-sm">
-                          <img :src="`https://i.pravatar.cc/150?img=${user.id}`" class="card-img-top">
+                          <img :src="user.avatar" class="card-img-top">
                           <span class="badge bg-lime badge-notification badge-blink" v-if="user.active"></span>
                           <div class="card-body">
                             <div class="d-flex align-items-center">
@@ -150,10 +160,11 @@ let cuckold = ref(!!props.filters.cuckold);
 let podolatry = ref(!!props.filters.podolatry);
 let thresome = ref(!!props.filters.thresome);
 let active = ref(props.filters.active);
+let gender = ref(props.filters.gender);
 
 watch(
-  [search, country, sugarDaddy,sugarMommy,sugarBaby,submision,domme,master,bondage,cuckold,podolatry,thresome,active],
-  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,sugarBabyValue,submisionValue,dommeValue,masterValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue]) => {
+  [search, country, sugarDaddy,sugarMommy,sugarBaby,submision,domme,master,bondage,cuckold,podolatry,thresome,active,gender],
+  ([searchValue,countryValue,sugarDaddyValue,sugarMommyValue,sugarBabyValue,submisionValue,dommeValue,masterValue,bondageValue,cuckoldValue,podolatryValue,thresomeValue,activeValue,genderValue]) => {
     const queryParams = {};
 
     if (searchValue !== '') {queryParams.search = searchValue; }
@@ -169,6 +180,7 @@ watch(
     if (podolatryValue !== false) {queryParams.podolatry = podolatryValue;}
     if (thresomeValue !== false) {queryParams.thresome = thresomeValue;}
     if (activeValue !== false) {queryParams.active = activeValue;}
+    if (genderValue !== false && genderValue !== 'no_gender') {queryParams.gender = genderValue; }
 
     router.get('/usuarios', queryParams, {
       preserveState:true,
@@ -189,7 +201,8 @@ const reset = ()=>{
   bondage.value=false,
   cuckold.value=false,
   podolatry.value=false,
-  thresome.value=false
+  thresome.value=false,
+  gender.value=false
 
   router.get('/usuarios', {
       preserveState: true

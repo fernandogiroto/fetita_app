@@ -1,6 +1,6 @@
 
 <template>
-    <Head :title="`Fetita - ${user.name} ${user.surname}`"/>
+    <Head :title="`${user.name} ${user.surname}`"/>
     <AppLayout>
         <template #content>
         <!-- Page header -->
@@ -66,9 +66,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8" v-if="user.gallery">
                   <div class="card card-lg">
-                    <div class="card-body py-3 px-3">
+                    <div class="card-body py-3 px-3" >
                       <LightBox :images="user.gallery"></LightBox>
                     </div>
                   </div>
@@ -89,16 +89,16 @@ import {ref} from 'vue';
 import { onMounted } from 'vue';
 
 const props = defineProps(['user']);
-const profilePhotoDefault = `https://i.pravatar.cc/150?img=10`;
+const profilePhotoDefault = `http://127.0.0.1:8000/storage/images/avatar-default.jpeg`;
 const avatar = ref(props.user.avatar ?? profilePhotoDefault);
 const user_chat_url = ref(`http://127.0.0.1:8000/chat/${props.user.id}`)
 
 
 const getAvatar = function(){
   if(props.user.avatar){  
-    avatar.value = `http://127.0.0.1:8000/storage${props.user.avatar}`;
+      avatar.value = props.user.avatar;
   }else{
-    avatar = profilePhotoDefault;
+    avatar.value = profilePhotoDefault;
   }
 }
 

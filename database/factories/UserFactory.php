@@ -43,7 +43,7 @@ class UserFactory extends Factory
             'podolatry' => $faker->boolean(),
             'thresome' => $faker->boolean(),
             'active' => $faker->boolean(),
-            'avatar' => 'https://via.placeholder.com/640x480.png',
+            'avatar' => 'http://127.0.0.1:8000/storage/images/avatar-default.jpeg',
             'email_verified_at' => now(),
             'last_activity' => $faker->dateTime(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

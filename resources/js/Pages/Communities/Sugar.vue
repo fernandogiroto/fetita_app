@@ -96,7 +96,7 @@
                               <div class="col-md-6 col-lg-2" v-for="user in users.data">
                                 <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
                                   <div class="card">
-                                    <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(https://i.pravatar.cc/150?img=${user.id})`"></div>
+                                    <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(${user.avatar})`"></div>
                                     <span class="badge bg-lime badge-notification badge-blink"></span>
                                     <div class="card-body py-2">
                                       <h3 class="card-title mb-0">{{user.name}} {{user.surname}}</h3>
@@ -112,7 +112,7 @@
                               <div class="col-md-6 col-lg-2" v-for="user in users_new.data">
                                 <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
                                   <div class="card">
-                                    <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(https://i.pravatar.cc/150?img=${user.id})`"></div>
+                                    <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(${user.avatar})`"></div>
                                     <span class="badge bg-lime badge-notification badge-blink"></span>
                                     <div class="card-body py-2">
                                       <h3 class="card-title mb-0">{{user.name}} {{user.surname}}</h3>

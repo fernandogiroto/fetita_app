@@ -80,6 +80,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'last_activity' => Carbon::now(),
             'gender' => $request->gender,
+            'avatar' => 'http://127.0.0.1:8000/storage/images/avatar-default.jpeg'
         ]);
 
         event(new Registered($user));
