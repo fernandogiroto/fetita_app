@@ -222,3 +222,19 @@ a.nav-link.nav-link-users {
 .thresome-card-background {
     background-image: url('@/Assets/images/thresome.jpeg');
 }
+
+.margin-effect-2 {
+    transition: margin 0.2s ease-in-out;
+}
+
+.margin-effect-2:hover {
+    margin-top: -2px;
+}
+
+.margin-effect-3 {
+    transition: margin 0.2s ease-in-out;
+}
+
+.margin-effect-3:hover {
+    margin-top: -3px;
+}

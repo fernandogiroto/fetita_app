@@ -89,7 +89,7 @@
                             <div class="row row-cards">
                               <div class="col-md-6 col-lg-2" v-for="user in users.data">
                                 <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
-                                  <div class="card">
+                                  <div class="card margin-effect-3">
                                     <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(${user.avatar})`"></div>
                                     <span class="badge bg-lime badge-notification badge-blink"></span>
                                     <div class="card-body py-2">
@@ -105,7 +105,7 @@
                             <div class="row row-cards">
                               <div class="col-md-6 col-lg-2" v-for="user in users_new.data">
                                 <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
-                                  <div class="card">
+                                  <div class="card margin-effect-3">
                                     <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(${user.avatar})`"></div>
                                     <span class="badge bg-lime badge-notification badge-blink"></span>
                                     <div class="card-body py-2">

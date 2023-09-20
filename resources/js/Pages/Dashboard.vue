@@ -36,7 +36,7 @@
                         
                         <div class="col-sm-6 col-lg-4">
                           <Link :href="route('comunidades.sugar')" class="text-decoration-none"> 
-                          <div class="card">
+                          <div class="card margin-effect-2">
                             <div class="row row-0">
                               <div class="col-3">
                                 <img src="@/assets/images/sugar.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
@@ -54,7 +54,7 @@
                       
                         <div class="col-sm-6 col-lg-4">
                           <Link :href="route('comunidades.submision')" class="text-decoration-none"> 
-                            <div class="card">
+                            <div class="card margin-effect-2">
                               <div class="row row-0">
                                 <div class="col-3">
                                   <img src="@/assets/images/submision.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-4">
                           <Link :href="route('comunidades.bondage')" class="text-decoration-none"> 
-                            <div class="card">
+                            <div class="card margin-effect-2">
                               <div class="row row-0">
                                 <div class="col-3">
                                   <img src="@/assets/images/bondage.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-4">
                           <Link :href="route('comunidades.cuckold')" class="text-decoration-none"> 
-                            <div class="card">
+                            <div class="card margin-effect-2">
                               <div class="row row-0">
                                 <div class="col-3">
                                   <img src="@/assets/images/cuckold.png" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-4">
                           <Link :href="route('comunidades.podolatry')" class="text-decoration-none"> 
-                            <div class="card">
+                            <div class="card margin-effect-2">
                               <div class="row row-0">
                                 <div class="col-3">
                                   <img src="@/assets/images/footfetish.jpeg" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
@@ -122,7 +122,7 @@
                         </div>
                         <div class="col-sm-6 col-lg-4">
                           <Link :href="route('comunidades.thresome')" class="text-decoration-none"> 
-                            <div class="card">
+                            <div class="card margin-effect-2">
                               <div class="row row-0">
                                 <div class="col-3">
                                   <img src="@/assets/images/thresome.jpeg" class="w-100 h-100 object-cover card-img-start" alt="Beautiful blonde woman relaxing with a can of coke on a tree stump by the beach">
@@ -162,7 +162,7 @@
                         <!-- ACTIVE USERS -->
                         <div class="col-md-6 col-lg-2" v-for="user in users.data">
                           <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
-                            <div class="card">                            
+                            <div class="card margin-effect-3">                            
                               <div class="img-responsive img-responsive-9-16 card-img-top" :style="`background-image: url(${user.avatar}`"></div>
                               <span class="badge bg-lime badge-notification badge-blink" v-if="user.active"></span>
                               <div class="card-body py-2 px-3">

@@ -25,7 +25,6 @@
                   <div class="col-md-3 ">
 
                     <form class="sticky-top">
-                      <div class="form-label">Usuário</div>
                       <input type="text" class="form-control mb-4" name="example-text-input" placeholder="Pesquisar pelo nome"  v-model="search">       
                       <div class="form-label">Comunidades</div>
                       <div class="mb-4">
@@ -107,7 +106,7 @@
                     <div class="row row-cards">
                       <div class="col-sm-6 col-lg-3" v-for="user in users.data">
                       <Link :href="route('user.profile',{nickname: user.nickname})" class="text-decoration-none">
-                        <div class="card card-sm">
+                        <div class="card card-sm margin-effect-3">
                           <img :src="user.avatar" class="card-img-top">
                           <span class="badge bg-lime badge-notification badge-blink" v-if="user.active"></span>
                           <div class="card-body">
