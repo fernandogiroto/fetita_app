@@ -45,3 +45,13 @@ php artisan serve
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![VUEJS](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+
+
+## TO DO
+
+```sh
+- Update design and config on chat view
+- Add block user option
+- Add favorite user option
+- Review CSS Components and files and make SASS files to organize
+```
