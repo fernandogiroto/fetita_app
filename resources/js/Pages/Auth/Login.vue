@@ -4,11 +4,12 @@
     <div class="col-12 col-lg-6 col-xl-4 border-top-wide border-danger d-flex flex-column justify-content-center">
       <div class="container container-tight my-5 px-lg-5">
         <div class="text-center mb-4">
-          <a href="." class="navbar-brand navbar-brand-autodark"></a>
+          <a href="." class="navbar-brand navbar-brand-autodark">
+          <img src="@/assets/images/logo_fetita.png" height="50" alt=""></a>
         </div>
-        <h2 class="h3 text-center mb-3">
+        <!-- <h2 class="h3 text-center mb-3">
           Fazer Login
-        </h2>
+        </h2> -->
         <form @submit.prevent="submit">
           <div class="mb-3">
             <div class="mt-4">
@@ -33,7 +34,7 @@
 
           <div class="form-footer">
             <PrimaryButton class="btn btn-primary w-100" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-              Entrar
+              Fazer Login
             </PrimaryButton>
           </div>
           <div >

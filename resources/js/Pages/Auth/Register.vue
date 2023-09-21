@@ -4,11 +4,12 @@
     <div class="col-12 col-lg-6 col-xl-4 border-top-wide border-danger d-flex flex-column justify-content-center">
       <div class="container container-tight my-1 px-lg-5">
         <div class="text-center mb-4">
-          <a href="." class="navbar-brand navbar-brand-autodark"></a>
+          <a href="." class="navbar-brand navbar-brand-autodark">
+          <img src="@/assets/images/logo_fetita.png" height="50" alt=""></a>
         </div>
-        <h2 class="h3 text-center mb-3">
+        <!-- <h2 class="h3 text-center mb-3">
           Registrar
-        </h2>
+        </h2> -->
         <form @submit.prevent="submit">
           <div>
             <TextInput id="name" type="text" class="form-control" v-model="form.name" required  autocomplete="name" placeholder="Nome" />
