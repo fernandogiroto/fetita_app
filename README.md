@@ -8,6 +8,8 @@ This was my first web app that I built from scratch. I started by using FIGMA to
 
 <img src="https://raw.githubusercontent.com/fernandogiroto/fetita_app/master/fetita_dashboard.png" alt="Fetita - Portal do Fetish" title="Fetita - Portal do Fetish" width="100%">
 <img src="https://raw.githubusercontent.com/fernandogiroto/fetita_app/master/fetita_sugar.png" alt="Fetita - Portal do Fetish" title="Fetita - Portal do Fetish" width="100%">
+<img src="https://raw.githubusercontent.com/fernandogiroto/fetita_app/master/fetita_profile.png" alt="Fetita - Portal do Fetish" title="Fetita - Portal do Fetish" width="100%">
+
 
 ## Installation
 
