@@ -56,4 +56,5 @@ php artisan serve
 - Add block user option
 - Add favorite user option
 - Review CSS Components and files and make SASS files to organize
+- Review the gallery profile (Add and Delete images)
 ```
