@@ -59,6 +59,8 @@ const props = defineProps({
 import plusImage from '@/Assets/Images/plus.png';
 import { useForm } from '@inertiajs/vue3'
 import { router } from '@inertiajs/vue3'
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 import {ref} from 'vue';
 const visibleRef = ref(false);
@@ -66,6 +68,17 @@ const indexRef = ref(0);
 const imgsRef = JSON.parse(props.images);
 const showAddImage =  ref(imgsRef?.length ?? 0); ;
 
+const notify = (type,msg) => {
+  if (type == 'success'){
+      toast.success(msg, {
+      autoClose: 2000,
+    });
+  } else if(type == 'error'){
+      toast.error(msg, {
+      autoClose: 3000,
+    });
+  }
+}
 
 const onShow = () => {
   visibleRef.value = true
@@ -101,7 +114,8 @@ const submitImage = () => {
         preserveScroll:true
       })
     },onError:(response)=>{
-      notify('error','Erro ao tentar adicionar imagem')
+      console.log(response)
+      notify('error',response.image)
     },
     
     forceFormData: true,

@@ -1,6 +1,6 @@
 
 <template>
-  <Head title="Sugar"/>
+  <Head title="Meu Perfíl"/>
   <AppLayout>
       <template #content>
         <!-- Page body -->
